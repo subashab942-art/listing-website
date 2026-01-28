@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Main card */
+.splash-card {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 360px;
+    animation: fadeUp 1.2s ease forwards;
+}
+
+/* Logo */
+.logo {
+    width: 350px;
+    height: 350px;
+    margin: 0 auto 10px;
+    background-image: url("/zomoto/img/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: zoomIn 1s ease;
+}
+
+/* Text */
+h1 {
+    margin: 10px 0 6px;
+    font-size: 26px;
+    color: #000;
+}
+p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Button */
+.btn {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #3D5A5E;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #0B1415;
+}
+
+/* Animations */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes fadeUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="splash-card">
+    <div class="logo"></div>
+    <h1>Furniture.</h1>
+    <p>Discover the best furniture for your home.</p>
+
+    <!-- Button click ONLY -->
+    <button class="btn" id="startBtn">Get Started</button>
+</div>
+
+<script>
+document.getElementById("startBtn").addEventListener("click", function () {
+    window.location.href = "login.html";
+});
+</script>
+
+</body>
+</html>

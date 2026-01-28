@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Card */
+.register-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 30px 25px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.logo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 10px;
+    background-image: url("/zomoto/img/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Title */
+h1 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+/* Inputs */
+.input-box {
+    margin-top: 15px;
+    text-align: left;
+}
+.input-box label {
+    font-size: 14px;
+    color: #555;
+}
+.input-box input {
+    width: 90%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 16px;
+    background: #3D5A5E;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #0B1415;
+}
+
+/* Extra */
+.extra {
+    margin-top: 15px;
+    font-size: 14px;
+}
+.extra a {
+    color: #3D5A5E;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="register-card">
+    <div class="logo"></div>
+    <h1>Create Account</h1>
+
+    <div class="input-box">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name">
+    </div>
+
+    <div class="input-box">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+    </div>
+
+    <div class="input-box">
+        <label>Password</label>
+        <input type="password" placeholder="Create password">
+    </div>
+
+    <div class="input-box">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm password">
+    </div>
+
+    <button class="btn" onclick="register()">Register</button>
+
+    <div class="extra">
+        Already have an account?
+        <a href="login.html">Login</a>
+    </div>
+</div>
+
+<script>
+function register() {
+    alert("Register clicked (backend integration later)");
+}
+</script>
+
+</body>
+</html>

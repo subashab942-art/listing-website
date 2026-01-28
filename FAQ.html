@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | FurniHome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2E5B5F;
+            --primary-light: #4A7C80;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+            --light: #F8FAFC;
+            --dark: #1E293B;
+            --gray-100: #F1F5F9;
+            --gray-300: #CBD5E1;
+            --gray-500: #64748B;
+            --gray-700: #334155;
+            --radius: 20px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 40px -10px rgb(0 0 0 / 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin: 0 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin: 0 0 2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* SEARCH & FILTERS */
+        .search-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 2px solid var(--gray-100);
+            border-radius: var(--radius);
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-500);
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+            border: 2px solid var(--gray-100);
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* FAQ ITEM */
+        .faq-list {
+            display: grid;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--gray-100);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .faq-item.hidden {
+            display: none;
+        }
+
+        .faq-question {
+            padding: 28px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            user-select: none;
+        }
+
+        .faq-question::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--secondary);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::before {
+            transform: scaleY(1);
+        }
+
+        .faq-question:hover {
+            background: var(--light);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 28px;
+            background: var(--gray-100);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 28px;
+        }
+
+        .faq-answer p {
+            margin: 0 0 20px;
+            line-height: 1.7;
+        }
+
+        .answer-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .copy-btn {
+            padding: 8px 16px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .icon {
+            font-size: 24px;
+            font-weight: bold;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .icon {
+            transform: rotate(45deg);
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            padding: 12px 0;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--gray-300);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 60px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin: 0 0 1rem;
+            font-weight: 700;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            margin: 0 0 2rem;
+            opacity: 0.95;
+        }
+
+        .cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--primary);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta a:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .search-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filters {
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 80px 20px 60px;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.2s; }
+        .faq-item:nth-child(3) { animation-delay: 0.3s; }
+        .faq-item:nth-child(4) { animation-delay: 0.4s; }
+        .faq-item:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+
+<body>
+    <!-- PROGRESS BAR -->
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers quickly or contact our support team</p>
+    </section>
+
+    <!-- SEARCH & FILTERS -->
+    <div class="search-container">
+        <div class="search-box">
+            <svg class="search-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+            <input type="text" class="search-input" placeholder="Search FAQs...">
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="delivery">Delivery</button>
+            <button class="filter-btn" data-filter="policy">Policy</button>
+            <button class="filter-btn" data-filter="sustainability">Sustainability</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="faq-list">
+            <!-- FAQ 1 -->
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question" tabindex="0">
+                    <span>What is the delivery time?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard delivery takes <strong>5–7 business days</strong> across India. Express delivery (2–3 days) is available in select metro cities like Chennai, Mumbai, Delhi, and Bangalore.</p>
+                    <div class="answer-actions">
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question" tabindex="0">
+                    <span>Do you offer free shipping?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Free shipping on orders above <strong>₹10,000</strong>. For orders below this amount, we charge a flat ₹199 delivery fee across India.</p>
+                    <div class="answer-actions">
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item" data-category="policy">
+                <div class="faq-question" tabindex="0">
+                    <span>What is your return policy?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>30-day hassle-free returns for unused products in original packaging. Simply contact support within 7 days of delivery to initiate the process. <em>Some exclusions apply for custom furniture.</em></p>
+                    <div class="answer-actions">
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item" data-category="policy">
+                <div class="faq-question" tabindex="0">
+                    <span>How do I claim warranty?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>All furniture comes with <strong>1-5 year warranty</strong>. Email support@furnihome.com with your order ID, product photos, and issue description. Our team responds within 24 hours.</p>
+                    <div class="answer-actions">
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item" data-category="sustainability">
+                <div class="faq-question" tabindex="0">
+                    <span>Are your products eco-friendly?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We use <strong>FSC-certified wood</strong>, water-based finishes, and recycled packaging. 95% of our manufacturing waste is repurposed. Carbon-neutral shipping coming soon.</p>
+                    <div class="answer-actions">
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Still Have Questions?</h2>
+        <p>Our support team responds within 2 hours, 24/7</p>
+        <a href="mailto:support@furnihome.com">
+            Contact Support
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </a>
+    </section>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', toggleFAQ);
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleFAQ.call(question);
+                }
+            });
+        });
+
+        function toggleFAQ() {
+            const item = this.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all others
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+            });
+            
+            // Toggle current
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('input', filterFAQs);
+
+        function filterFAQs() {
+            const query = searchInput.value.toLowerCase();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                item.classList.toggle('hidden', query && !question.includes(query));
+            });
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter FAQs
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    const category = item.dataset.category;
+                    item.classList.toggle('hidden', 
+                        filter !== 'all' && category !== filter
+                    );
+                });
+            });
+        });
+
+        // Copy to clipboard
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const answer = btn.closest('.faq-answer').querySelector('p').textContent;
+                try {
+                    await navigator.clipboard.writeText(answer);
+                    const original = btn.textContent;
+                    btn.textContent = '✅ Copied!';
+                    btn.style.background = '#059669';
+                    setTimeout(() => {
+                        btn.textContent = original;
+                        btn.style.background = '';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy', err);
+                }
+            });
+        });
+
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.querySelector('.progress-fill').style.width = progress + '%';
+        });
+
+        // Smooth search focus
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.style.transform = 'scale(1.02)';
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.style.transform = '';
+        });
+    </script>
+</body>
+</html>

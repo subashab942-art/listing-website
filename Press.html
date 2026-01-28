@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press & Media | FurniHome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3D5A5E;
+            --primary-light: #5a7a7e;
+            --secondary: #2980b9;
+            --secondary-light: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --gray-light: #ecf0f1;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(61, 90, 94, 0.85), rgba(61, 90, 94, 0.75)),
+                url('https://images.unsplash.com/photo-1495020689067-958852a7765e') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        /* INTRO */
+        .intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .intro h2 {
+            color: var(--primary);
+            font-size: 36px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .intro p {
+            color: var(--gray);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* PRESS FILTER */
+        .press-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid var(--gray-light);
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        /* PRESS GRID */
+        .press-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        /* PRESS CARD */
+        .press-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid transparent;
+        }
+
+        .press-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+            top: 0;
+            left: 0;
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .press-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(41, 128, 185, 0.15);
+        }
+
+        .press-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .press-source {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .source-logo {
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .press-card span {
+            color: var(--secondary);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .press-card h3 {
+            color: var(--primary);
+            margin: 10px 0 15px;
+            font-size: 22px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .press-card p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .press-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 8px 0;
+        }
+
+        .press-card a:hover {
+            color: var(--secondary-light);
+            gap: 12px;
+        }
+
+        .press-card a i {
+            transition: var(--transition);
+        }
+
+        .press-card a:hover i {
+            transform: translateX(5px);
+        }
+
+        /* MEDIA KIT */
+        .media-kit {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .media-kit h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .media-kit p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+
+        .kit-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .kit-item {
+            background: var(--gray-light);
+            padding: 25px;
+            border-radius: var(--radius);
+            width: 200px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .kit-item:hover {
+            background: var(--light);
+            transform: translateY(-5px);
+        }
+
+        .kit-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .kit-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* PRESS CONTACT */
+        .press-contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: var(--radius);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .press-contact::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .press-contact-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .press-contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .press-contact p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .press-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .media-kit {
+                padding: 30px 20px;
+            }
+
+            .kit-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .press-card, .kit-item, .contact-item {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .press-card:nth-child(2) { animation-delay: 0.1s; }
+        .press-card:nth-child(3) { animation-delay: 0.2s; }
+        .press-card:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-couch"></i>
+                FurniHome
+            </a>
+            <div class="nav-links">
+                <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html"><i class="fas fa-shopping-cart"></i> Shop</a>
+                <a href="Press.html" class="active"><i class="fas fa-newspaper"></i> Press</a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Press & Media</h1>
+            <p>Discover the latest news, features, and insights about FurniHome from leading publications worldwide.</p>
+            <div class="hero-actions">
+                <a href="#media-kit" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Media Kit
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contact PR Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- INTRO -->
+        <div class="intro">
+            <h2>FurniHome in the News</h2>
+            <p>
+                Discover what leading publications, business journals, and lifestyle media
+                are saying about <strong>FurniHome</strong> — from design innovation to sustainable practices.
+            </p>
+        </div>
+
+        <!-- FILTER -->
+        <div class="press-filter">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Business</button>
+            <button class="filter-btn">Design</button>
+            <button class="filter-btn">Sustainability</button>
+            <button class="filter-btn">Technology</button>
+        </div>
+
+        <!-- PRESS GRID -->
+        <div class="press-grid">
+            <div class="press-card">
+                <div class="press-source">
+                    <div class="source-logo">F</div>
+                    <span>FORBES · January 2025</span>
+                </div>
+                <h3>FurniHome Redefines Modern Furniture Shopping With AI-Powered Design</h3>
+                <p>
+                    FurniHome brings innovative design, affordability, and sustainability together
+                    in one seamless digital experience, leveraging AI to personalize furniture recommendations.
+                </p>
+                <a href="#">
+                    Read Full Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="press-card">
+                <div class="press-source">
+                    <div class="source-logo">ET</div>
+                    <span>THE ECONOMIC TIMES · December 2024</span>
+                </div>
+                <h3>How FurniHome Is Transforming Indian Homes With Affordable Luxury</h3>
+                <p>
+                    With a strong online presence and innovative supply chain, FurniHome is changing
+                    how urban Indian customers discover, customize, and buy premium furniture.
+                </p>
+                <a href="#">
+                    Read Full Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="press-card">
+                <div class="press-source">
+                    <div class="source-logo">HT</div>
+                    <span>HINDUSTAN TIMES · November 2024</span>
+                </div>
+                <h3>Sustainable Furniture: FurniHome's Commitment to a Greener Future</h3>
+                <p>
+                    A closer look at FurniHome's industry-leading commitment to eco-friendly materials,
+                    carbon-neutral manufacturing, and responsible sourcing practices.
+                </p>
+                <a href="#">
+                    Read Full Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="press-card">
+                <div class="press-source">
+                    <div class="source-logo">BT</div>
+                    <span>BUSINESS TODAY · October 2024</span>
+                </div>
+                <h3>From Startup to Market Leader: The Remarkable FurniHome Journey</h3>
+                <p>
+                    FurniHome's rapid growth and expansion highlight the power of customer-first thinking,
+                    design innovation, and agile business strategy in the competitive furniture industry.
+                </p>
+                <a href="#">
+                    Read Full Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="press-card">
+                <div class="press-source">
+                    <div class="source-logo">V</div>
+                    <span>VOGUE LIVING · September 2024</span>
+                </div>
+                <h3>Design Excellence: FurniHome's Award-Winning Furniture Collections</h3>
+                <p>
+                    An exclusive feature on FurniHome's design philosophy, showcasing their award-winning
+                    collections that blend contemporary aesthetics with functional brilliance.
+                </p>
+                <a href="#">
+                    Read Full Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="press-card">
+                <div class="press-source">
+                    <div class="source-logo">TC</div>
+                    <span>TECHCRUNCH · August 2024</span>
+                </div>
+                <h3>FurniHome Raises $50M Series B to Expand AR Furniture Visualization</h3>
+                <p>
+                    The furniture e-commerce platform secures major funding to enhance its augmented reality
+                    technology, allowing customers to visualize furniture in their homes before purchasing.
+                </p>
+                <a href="#">
+                    Read Full Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- MEDIA KIT -->
+        <div id="media-kit" class="media-kit">
+            <h2>Media Resources</h2>
+            <p>
+                Download our official media kit containing logos, brand assets, high-resolution images,
+                executive biographies, and company facts for journalists and media professionals.
+            </p>
+            
+            <div class="kit-items">
+                <div class="kit-item">
+                    <div class="kit-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h4>Brand Assets</h4>
+                    <p>Logos, color palette, typography</p>
+                </div>
+                
+                <div class="kit-item">
+                    <div class="kit-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h4>High-Res Photos</h4>
+                    <p>Product and office images</p>
+                </div>
+                
+                <div class="kit-item">
+                    <div class="kit-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>Press Releases</h4>
+                    <p>Latest company announcements</p>
+                </div>
+                
+                <div class="kit-item">
+                    <div class="kit-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Executive Bios</h4>
+                    <p>Leadership team profiles</p>
+                </div>
+            </div>
+            
+            <a href="#" class="btn btn-primary" style="margin-top: 30px;">
+                <i class="fas fa-download"></i> Download Complete Media Kit
+            </a>
+        </div>
+
+        <!-- PRESS CONTACT -->
+        <div id="contact" class="press-contact">
+            <div class="press-contact-content">
+                <h2>Media & Press Inquiries</h2>
+                <p>
+                    Our PR team is available to assist journalists, bloggers, and media professionals
+                    with interviews, expert commentary, fact-checking, and exclusive stories.
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Press Contact</h4>
+                        <p>Sarah Johnson</p>
+                        <p>Head of Communications</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>press@furnihome.com</p>
+                        <p>Response within 24 hours</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Phone</h4>
+                        <p>+1 (800) 555-MEDIA</p>
+                        <p>Mon-Fri, 9AM-6PM EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>FurniHome</h3>
+                <p>Creating beautiful, functional furniture that transforms living spaces and enhances everyday life since 2010.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Media Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Press Releases</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Media Kit</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Executive Team</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Company Timeline</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Awards & Recognition</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Corporate Headquarters</a></li>
+                    <li><a href="mailto:press@furnihome.com"><i class="fas fa-envelope"></i> press@furnihome.com</a></li>
+                    <li><a href="tel:+18005556334"><i class="fas fa-phone"></i> 1-800-555-MEDIA</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Media Hours: 9AM-6PM EST</a></li>
+                    <li><a href="#"><i class="fas fa-rss"></i> Subscribe to Press Releases</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023 FurniHome. All rights reserved. | <a href="#" style="color: #fff; text-decoration: underline;">Privacy Policy</a> | <a href="#" style="color: #fff; text-decoration: underline;">Press Policy</a></p>
+            <p style="margin-top: 10px; font-size: 13px;">For media inquiries only. Customer support: support@furnihome.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const pressCards = document.querySelectorAll('.press-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.textContent.toLowerCase();
+                    
+                    // Show/hide cards based on filter
+                    pressCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'flex';
+                        } else {
+                            const cardText = card.textContent.toLowerCase();
+                            if (cardText.includes(filterValue)) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

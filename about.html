@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – FurniHome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* GLOBAL */
+        :root {
+            --primary-color: #3D5A5E;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --gray-color: #95a5a6;
+            --border-radius: 16px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* Hide scrollbar */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        /* HERO BANNER - FIXED */
+        .about-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        /* Banner Image Container - FIXED */
+        .banner-container {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: bannerPan 20s linear infinite alternate;
+        }
+
+
+        @keyframes bannerPan {
+            0% {
+                transform: scale(1.1) translateX(0);
+            }
+
+            100% {
+                transform: scale(1.15) translateX(-5%);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                    rgba(61, 90, 94, 0.85),
+                    rgba(11, 20, 21, 0.85));
+            z-index: 2;
+        }
+
+        /* Content */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            min-width: 150px;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .hero-stat .number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-stat .label {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* MAIN CONTENT */
+        .about-content {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 30px;
+        }
+
+        /* ABOUT SECTIONS */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-section:nth-child(even) .about-text {
+            order: 2;
+        }
+
+        .about-section:nth-child(even) .about-image {
+            order: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            color: var(--gray-color);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* HIGHLIGHTS SECTION */
+        .highlights-section {
+            text-align: center;
+            margin: 80px 0;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            border-radius: var(--border-radius);
+        }
+
+        .highlights-section h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .highlight {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .highlight-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(61, 90, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-color);
+            font-size: 28px;
+        }
+
+        .highlight h3 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .highlight p {
+            color: var(--gray-color);
+            font-size: 16px;
+        }
+
+        /* VALUES SECTION */
+        .values-section {
+            margin: 80px 0;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(61, 90, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            color: var(--gray-color);
+            line-height: 1.7;
+        }
+
+        /* TEAM SECTION */
+        .team-section {
+            text-align: center;
+            margin: 80px 0;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            border-radius: var(--border-radius);
+        }
+
+        .team-section h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid rgba(61, 90, 94, 0.1);
+        }
+
+        .team-member h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .team-member .position {
+            color: var(--secondary-color);
+            font-size: 15px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .team-member p {
+            color: var(--gray-color);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(61, 90, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            text-align: center;
+            padding: 80px 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            margin: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 40px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            border: 2px solid var(--secondary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .cta-btn.secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 30px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Social Media Icons */
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .footer-social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-social-icon:hover {
+            transform: translateY(-5px);
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .footer-social-icon.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+        }
+
+        .footer-social-icon.instagram:hover {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            border-color: transparent;
+        }
+
+        .footer-social-icon.twitter:hover {
+            background: #1DA1F2;
+            border-color: #1DA1F2;
+        }
+
+        .footer-social-icon.youtube:hover {
+            background: #FF0000;
+            border-color: #FF0000;
+        }
+
+        .footer-social-icon.linkedin:hover {
+            background: #0077B5;
+            border-color: #0077B5;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-section:nth-child(even) .about-text,
+            .about-section:nth-child(even) .about-image {
+                order: unset;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .hero-stat {
+                min-width: 120px;
+                padding: 15px;
+            }
+
+            .hero-stat .number {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                min-height: 60vh;
+                padding: 40px 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .about-content {
+                padding: 0 20px;
+                margin: 60px auto;
+            }
+
+            .about-text h2 {
+                font-size: 28px;
+            }
+
+            .highlights-section,
+            .team-section,
+            .cta-section {
+                padding: 40px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-stats {
+                gap: 15px;
+            }
+
+            .hero-stat {
+                min-width: 100px;
+                padding: 12px;
+            }
+
+            .hero-stat .number {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 15px;
+            }
+
+            .about-text h2 {
+                font-size: 24px;
+            }
+
+            .highlights,
+            .values-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlight,
+            .value-card,
+            .team-member {
+                padding: 30px 20px;
+            }
+
+            .footer-social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stat {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="nav"></div>
+
+    <!-- HERO BANNER -->
+    <section class="about-hero">
+        <!-- Banner Image Container -->
+        <div class="banner-container">
+          <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Modern Furniture Collection" class="banner-img">
+        </div>
+
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Our Story at FurniHome</h1>
+            <p>For over a decade, we've been crafting premium furniture that transforms houses into homes. Our passion
+                is creating pieces that combine timeless design with exceptional comfort and durability.</p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number">10+</div>
+                    <div class="label">Years of Excellence</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">5000+</div>
+                    <div class="label">Happy Families</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">100+</div>
+                    <div class="label">Design Awards</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">Pan India</div>
+                    <div class="label">Nationwide Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-content">
+
+        <!-- OUR STORY -->
+        <div class="about-section">
+            <div class="about-text">
+                <h2>Who We Are</h2>
+                <p>Founded in 2010, FurniHome began as a small workshop with a big vision: to create furniture that
+                    blends functionality with aesthetic appeal. What started as a passion project has grown into one of
+                    India's most trusted furniture brands.</p>
+                <p>Our team of skilled craftsmen, interior designers, and furniture experts work tirelessly to bring you
+                    collections that reflect both contemporary trends and timeless elegance. Every piece is crafted with
+                    attention to detail and a commitment to sustainability.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Our Workshop">
+            </div>
+        </div>
+
+        <!-- OUR MISSION -->
+        <div class="about-section">
+            <div class="about-text">
+                <h2>Our Mission</h2>
+                <p>We believe that great furniture should be accessible to everyone. Our mission is to democratize
+                    premium furniture design by offering high-quality pieces at fair prices, without compromising on
+                    craftsmanship or materials.</p>
+                <p>From living rooms to bedrooms, home offices to dining spaces, we design furniture that not only
+                    serves your practical needs but also expresses your personal style and enhances your daily life.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Modern Furniture">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- HIGHLIGHTS SECTION -->
+    <section class="highlights-section">
+        <h2>Why Choose FurniHome</h2>
+        <div class="highlights">
+            <div class="highlight">
+                <div class="highlight-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>Premium Quality</h3>
+                <p>Crafted with sustainable, durable materials and meticulous attention to detail</p>
+            </div>
+            <div class="highlight">
+                <div class="highlight-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Eco-Friendly</h3>
+                <p>We use responsibly sourced materials and environmentally conscious manufacturing</p>
+            </div>
+            <div class="highlight">
+                <div class="highlight-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Pan India Delivery</h3>
+                <p>Free delivery across India with professional assembly service available</p>
+            </div>
+            <div class="highlight">
+                <div class="highlight-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>5-Year Warranty</h3>
+                <p>All our furniture comes with a comprehensive warranty for peace of mind</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES SECTION -->
+    <section class="values-section">
+        <h2>Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Craftsmanship</h3>
+                <p>Every piece is handcrafted with precision and care by our skilled artisans</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Innovation</h3>
+                <p>We continuously innovate to bring you cutting-edge designs and functionality</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Customer First</h3>
+                <p>Your satisfaction is our priority - from design to delivery and beyond</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Integrity</h3>
+                <p>We believe in transparent pricing, honest communication, and ethical practices</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team-section">
+        <h2>Meet Our Founders</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    alt="Rajesh Kumar" class="member-photo">
+                <h3>Rajesh Kumar</h3>
+                <div class="position">CEO & Founder</div>
+                <p>With 15+ years in furniture design, Rajesh brings visionary leadership and a passion for sustainable
+                    design.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/flipkart/img/tamil.jpg"
+                    alt="Priya Sharma" class="member-photo">
+                <h3></h3>
+                <div class="position">Creative Director</div>
+                <p>Priya's background in interior architecture brings an eye for detail and modern aesthetics to every
+                    collection.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/flipkart/img/subash.jpg"
+                    alt="Arun Patel" class="member-photo">
+                <h3>Subash</h3>
+                <div class="position">Head of Operations</div>
+                <p>Arun ensures that every piece meets our quality standards and reaches customers on time, every time.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Space?</h2>
+        <p>Explore our collections and discover furniture that tells your story. Let's create a home that truly reflects
+            you.</p>
+        <div class="cta-buttons">
+            <a href="shop.html" class="cta-btn">
+                <i class="fas fa-shopping-cart"></i> Shop Our Collection
+            </a>
+            <a href="contact.html" class="cta-btn secondary">
+                <i class="fas fa-comment-alt"></i> Get Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Furni<span>Home</span></div>
+            <p class="footer-text">Bringing elegance and comfort to your home with our premium furniture collection
+                since 2010.</p>
+
+            <!-- Social Media Icons -->
+            <div class="footer-social">
+                <a href="#" class="footer-social-icon facebook" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="footer-social-icon instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="footer-social-icon twitter" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="footer-social-icon youtube" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="footer-social-icon linkedin" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+
+            <div class="copyright">
+                © 2023 FurniHome. All rights reserved. | Privacy Policy | Terms of Service
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ===============================
+               PAGE IDENTIFIER
+            ================================ */
+            window.ACTIVE_PAGE = "about";
+
+            /* ===============================
+               LOAD NAVBAR + ACTIVE LINK
+            ================================ */
+            fetch("nav.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("nav").innerHTML = data;
+
+                    document.querySelectorAll(".nav-center a").forEach(link => {
+                        link.classList.toggle(
+                            "active",
+                            link.dataset.page === window.ACTIVE_PAGE
+                        );
+                    });
+                });
+
+            /* ===============================
+               SOCIAL MEDIA CLICK HANDLERS
+            ================================ */
+            document.querySelectorAll('.footer-social-icon, .social-link').forEach(icon => {
+                icon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const platform = this.classList[1] || 'social';
+                    const platformNames = {
+                        'facebook': 'Facebook',
+                        'instagram': 'Instagram',
+                        'twitter': 'Twitter',
+                        'youtube': 'YouTube',
+                        'linkedin': 'LinkedIn'
+                    };
+
+                    if (platformNames[platform]) {
+                        alert(`You clicked on our ${platformNames[platform]} link! In a real website, this would take you to our ${platformNames[platform]} page.`);
+                    }
+                });
+            });
+
+            /* ===============================
+               CTA BUTTON FUNCTIONALITY
+            ================================ */
+            document.querySelectorAll('.cta-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        alert('This button would navigate to the shop/contact page in a complete website.');
+                    }
+                });
+            });
+
+            /* ===============================
+               COUNTER ANIMATION
+            ================================ */
+            function animateCounter(element, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = value + (end > 100 ? '+' : '');
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            /* ===============================
+               INITIALIZE COUNTERS WHEN IN VIEW
+            ================================ */
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.hero-stat .number');
+                        counters.forEach(counter => {
+                            const text = counter.textContent;
+                            let endValue = 0;
+
+                            if (text.includes('+')) {
+                                endValue = parseInt(text);
+                                counter.textContent = '0+';
+                                setTimeout(() => animateCounter(counter, 0, endValue, 2000), 300);
+                            } else if (text === 'Pan India') {
+                                // Don't animate this one
+                                return;
+                            }
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe the hero section
+            const heroSection = document.querySelector('.about-hero');
+            if (heroSection) {
+                observer.observe(heroSection);
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

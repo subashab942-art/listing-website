@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Information | FurniHome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3D5A5E;
+            --primary-light: #5a7a7e;
+            --secondary: #3498db;
+            --secondary-light: #5dade2;
+            --accent: #2ecc71;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --gray-light: #ecf0f1;
+            --radius: 16px;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f4f6f8 0%, #e8edf1 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* SECTION */
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2 i {
+            color: var(--secondary);
+        }
+
+        .section p, .section li {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* LIST */
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        ul li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .box {
+            background: var(--light);
+            padding: 35px 25px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+            transform: translateY(-100%);
+            transition: var(--transition);
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.15);
+        }
+
+        .box:hover::before {
+            transform: translateY(0);
+        }
+
+        .box-icon {
+            background: var(--primary);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .box:hover .box-icon {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .box p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* FEATURE LIST */
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gray-light);
+            padding: 12px 20px;
+            border-radius: 30px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .feature-icon {
+            background: var(--secondary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* TRACKING SECTION */
+        .tracking-section {
+            background: linear-gradient(to right, #e8f4fc, #f0f9ff);
+            border-left: 6px solid var(--secondary);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .tracking-icon {
+            background: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 24px;
+        }
+
+        .track-timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .timeline-step {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .timeline-step.active .step-number {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-light);
+            color: var(--gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .step-label {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            margin-top: 60px;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .track-timeline {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                margin: 0;
+                justify-content: center;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section, .box, .feature-item {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .box:nth-child(2) { animation-delay: 0.1s; }
+        .box:nth-child(3) { animation-delay: 0.2s; }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-couch"></i>
+                FurniHome
+            </a>
+            <div class="nav-links">
+                <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html"><i class="fas fa-shopping-cart"></i> Shop</a>
+                <a href="Shipping.html" class="active"><i class="fas fa-shipping-fast"></i> Shipping</a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Shipping Information</h1>
+            <p>Fast, reliable, and safe delivery to your doorstep. We ensure your furniture arrives in perfect condition, ready to transform your space.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">On-Time Delivery</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Cities Covered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Tracking Support</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">48H</div>
+                    <div class="stat-label">Damage Reporting</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- SHIPPING OVERVIEW -->
+        <div class="section">
+            <h2><i class="fas fa-info-circle"></i> Shipping Overview</h2>
+            <p>
+                At FurniHome, we ensure your furniture is delivered safely and on time.
+                Orders are processed within <strong>1–2 business days</strong> and shipped through
+                trusted logistics partners with care and precision.
+            </p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span>Safe & Secure Packaging</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <span>Real-Time Tracking</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <span>Professional Delivery Team</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHIPPING OPTIONS -->
+        <div class="section">
+            <h2><i class="fas fa-truck"></i> Shipping Options</h2>
+            <p>Choose the delivery option that works best for your needs:</p>
+
+            <div class="grid">
+                <div class="box">
+                    <div class="box-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Standard Delivery</h3>
+                    <p>5–7 business days</p>
+                    <p>Perfect for non-urgent deliveries with our reliable standard service</p>
+                    <div class="price-tag">Free on orders above ₹10,000</div>
+                </div>
+
+                <div class="box">
+                    <div class="box-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Express Delivery</h3>
+                    <p>2–3 business days</p>
+                    <p>Need it sooner? Our express service gets your furniture to you quickly</p>
+                    <div class="price-tag">Extra charges apply</div>
+                </div>
+
+                <div class="box">
+                    <div class="box-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>White-Glove Delivery</h3>
+                    <p>7–10 business days</p>
+                    <p>Full-service delivery including assembly, placement, and cleanup</p>
+                    <div class="price-tag">Available in select cities</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHIPPING LOCATIONS -->
+        <div class="section">
+            <h2><i class="fas fa-map-marked-alt"></i> Shipping Locations</h2>
+            <ul>
+                <li>We currently ship across all major cities and towns in India</li>
+                <li>Remote locations may take additional 2-3 business days</li>
+                <li>Free shipping available on orders above ₹10,000</li>
+                <li>International shipping coming soon in 2024</li>
+                <li>Check pin code availability during checkout</li>
+            </ul>
+        </div>
+
+        <!-- TRACKING -->
+        <div class="section">
+            <h2><i class="fas fa-map-pin"></i> Order Tracking</h2>
+            <p>
+                Once your order is shipped, you will receive a tracking number via
+                email and SMS to monitor your delivery status in real-time.
+            </p>
+            
+            <div class="tracking-section">
+                <div class="tracking-icon">
+                    <i class="fas fa-search-location"></i>
+                </div>
+                <div>
+                    <p><strong>Track Your Order:</strong> Visit our tracking portal or use the mobile app to see real-time updates on your delivery status, estimated arrival time, and delivery personnel contact information.</p>
+                </div>
+            </div>
+            
+            <div class="track-timeline">
+                <div class="timeline-step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Order Placed</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Processing</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Shipped</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Out for Delivery</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">5</div>
+                    <div class="step-label">Delivered</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IMPORTANT NOTES -->
+        <div class="section">
+            <h2><i class="fas fa-exclamation-circle"></i> Important Notes</h2>
+            <ul>
+                <li>Delivery timelines may vary during sales or holiday seasons</li>
+                <li>Please ensure someone is available to receive and inspect the order</li>
+                <li>Damaged items must be reported within 48 hours with photos/videos</li>
+                <li>Signature required upon delivery for all orders</li>
+                <li>Rescheduling delivery is available up to 24 hours before scheduled delivery</li>
+                <li>Some large items may require additional handling time</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Need Help With Shipping?</h2>
+            <p>Our dedicated support team is available 7 days a week to assist you with tracking, delivery questions, or special requests.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-headset"></i> Contact Support
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-box"></i> Track Your Order
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>FurniHome</h3>
+                <p>Delivering comfort and style to your home since 2010. Your satisfaction is our priority.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Pinterest">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Shop Products</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Track Order</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Shipping Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Return Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Furniture St, Design City</a></li>
+                    <li><a href="tel:+18005551234"><i class="fas fa-phone"></i> 1-800-555-1234</a></li>
+                    <li><a href="mailto:shipping@furnihome.com"><i class="fas fa-envelope"></i> shipping@furnihome.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 8am-10pm EST</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Sat-Sun: 9am-8pm EST</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023 FurniHome. All rights reserved. | <a href="#" style="color: #fff; text-decoration: underline;">Privacy Policy</a> | <a href="#" style="color: #fff; text-decoration: underline;">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>

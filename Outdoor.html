@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outdoor Furniture | FurniHome</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #2A5C4A;
+    --primary-light: #3D7A5E;
+    --secondary: #27ae60;
+    --secondary-dark: #219653;
+    --accent: #E67E22;
+    --light: #f8f9fa;
+    --dark: #1a3c2f;
+    --gray: #7f8c8d;
+    --gray-light: #ecf0f1;
+    --radius: 12px;
+    --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    --shadow-hover: 0 15px 35px rgba(0,0,0,0.12);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER */
+header {
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 8px 0;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+.nav-links a.active {
+    color: var(--secondary);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--dark);
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    color: var(--secondary);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--accent);
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(26, 60, 47, 0.7), rgba(26, 60, 47, 0.7)),
+                url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.cta-button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.cta-button:hover {
+    background-color: #d35400;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* FILTERS */
+.filters {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+}
+
+.filter-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filter-btn {
+    background-color: var(--gray-light);
+    border: 1px solid #ddd;
+    padding: 8px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* PRODUCTS GRID */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary);
+    font-size: 32px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--accent);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-title {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.product-description {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.product-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.action-btn.secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.action-btn.secondary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* OUTDOOR FEATURES */
+.outdoor-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 60px 0;
+}
+
+.feature-card {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-top: 4px solid var(--secondary);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 50px;
+    margin: 60px 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.testimonials h2 {
+    color: var(--primary);
+    margin-bottom: 40px;
+}
+
+.testimonial-slider {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.testimonial {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.testimonial.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.testimonial-text {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 30px;
+    color: var(--dark);
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.testimonial-slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-dot.active {
+    background-color: var(--secondary);
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 60px 0 30px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    font-size: 14px;
+}
+
+.newsletter-btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-btn:hover {
+    background-color: #d35400;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #bdc3c7;
+    font-size: 14px;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: var(--radius);
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalFade 0.3s;
+}
+
+@keyframes modalFade {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: var(--dark);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modal-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+}
+
+.modal-image {
+    width: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+    height: 400px;
+}
+
+.modal-info h2 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.modal-price {
+    font-size: 28px;
+    color: var(--secondary);
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.modal-description {
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quantity-btn:hover {
+    background-color: var(--gray-light);
+}
+
+.quantity-value {
+    font-size: 20px;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+.add-to-cart-large {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.add-to-cart-large:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .modal-product {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .modal-image {
+        height: 300px;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .testimonials {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .action-btn {
+        justify-content: center;
+    }
+    
+    .outdoor-features {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-tree"></i>
+                    <span>FurniHome Outdoor</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Outdoor</a></li>
+                    <li><a href="#">Garden</a></li>
+                    <li><a href="#">Patio</a></li>
+                    <li><a href="#">BBQ & Dining</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Sale</a></li>
+                </ul>
+                <div class="header-icons">
+                    <button class="icon-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn" id="userBtn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="icon-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">2</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your Outdoor Space</h1>
+            <p>Discover premium outdoor furniture designed for comfort, durability, and style. Create your perfect oasis for relaxation and entertainment.</p>
+            <button class="cta-button" id="shopCollectionBtn">Explore Collection</button>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- FILTERS -->
+        <section class="filters">
+            <div class="filter-title">
+                <i class="fas fa-filter"></i>
+                <h3>Filter by Category</h3>
+            </div>
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="seating">Seating</button>
+                <button class="filter-btn" data-filter="tables">Tables</button>
+                <button class="filter-btn" data-filter="dining">Dining Sets</button>
+                <button class="filter-btn" data-filter="accessory">Accessories</button>
+            </div>
+        </section>
+
+        <!-- PRODUCTS SECTION -->
+        <h2 class="section-title">Premium Outdoor Collection</h2>
+        <div class="products-grid" id="productsContainer">
+            <!-- Product cards will be dynamically generated -->
+        </div>
+
+        <!-- OUTDOOR FEATURES -->
+        <h2 class="section-title">Why Choose Our Outdoor Furniture</h2>
+        <div class="outdoor-features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-umbrella-beach"></i>
+                </div>
+                <h3>Weather Resistant</h3>
+                <p>Made with durable materials that withstand sun, rain, and changing seasons.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Eco-Friendly</h3>
+                <p>Sustainably sourced materials with minimal environmental impact.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-couch"></i>
+                </div>
+                <h3>Comfort Designed</h3>
+                <p>Ergonomic designs for maximum relaxation during long outdoor sessions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Easy Assembly</h3>
+                <p>Simple setup with clear instructions and all necessary tools included.</p>
+            </div>
+        </div>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"The outdoor sofa set transformed our patio into a comfortable entertainment area. It's durable, stylish, and has held up perfectly through monsoon season!"</p>
+                    <p class="testimonial-author">- Priya Sharma, Mumbai</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"I love my new garden coffee table! It's the perfect addition to my balcony garden. The quality is exceptional and it was so easy to assemble."</p>
+                    <p class="testimonial-author">- Rohan Mehta, Delhi</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The weather-resistant materials are no joke. Our outdoor furniture looks as good as new after a full year outside. Highly recommend!"</p>
+                    <p class="testimonial-author">- Anjali Patel, Bangalore</p>
+                </div>
+                <div class="testimonial-slider-controls">
+                    <button class="slider-dot active" data-slide="0"></button>
+                    <button class="slider-dot" data-slide="1"></button>
+                    <button class="slider-dot" data-slide="2"></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FurniHome Outdoor</h3>
+                    <p>Creating beautiful, durable outdoor spaces since 2012. We specialize in premium outdoor furniture designed for Indian weather conditions.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Outdoor Collections</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Garden Furniture</a></li>
+                        <li><a href="#">Patio Sets</a></li>
+                        <li><a href="Outdoor.html">Outdoor Dining</a></li>
+                        <li><a href="#">Balcony Solutions</a></li>
+                        <li><a href="#">Poolside Lounge</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Delivery & Assembly</a></li>
+                        <li><a href="#">Weatherproof Guide</a></li>
+                        <li><a href="#">Maintenance Tips</a></li>
+                        <li><a href="Returns.html">Return Policy</a></li>
+                        <li><a href="Warranty.html">Warranty Information</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Seasonal Offers</h3>
+                    <p>Subscribe to get updates on seasonal sales and new outdoor collections.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FurniHome Outdoor. All rights reserved. | Designed for outdoor living</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-product" id="modalContent">
+                <!-- Modal content will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product data for outdoor furniture
+        const products = [
+            {
+                id: 1,
+                name: "Outdoor Lounge Chair",
+                description: "Weather-resistant wicker lounge chair with comfortable cushioning. Perfect for poolside or garden relaxation. Features UV-resistant fabric and waterproof cushions.",
+                price: 9999,
+                image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+                category: "seating",
+                badge: "Best Seller",
+                features: ["Weather-resistant", "UV-protected fabric", "Waterproof cushions", "Lightweight"]
+            },
+            {
+                id: 2,
+                name: "Garden Coffee Table",
+                description: "Teak wood coffee table perfect for patios & balconies. Naturally weather-resistant wood that ages beautifully. Low maintenance and durable construction.",
+                price: 11499,
+                image: "https://images.unsplash.com/photo-1598300056393-4aac492f4344",
+                category: "tables",
+                badge: "Eco-Friendly",
+                features: ["Teak wood", "Weather-resistant", "Low maintenance", "Natural finish"]
+            },
+            {
+                id: 3,
+                name: "Outdoor Sofa Set",
+                description: "3-piece outdoor sofa set with waterproof cushions. Comfortable seating for 4-5 people. Made with powder-coated aluminum frame for durability.",
+                price: 34999,
+                image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+                category: "seating",
+                badge: "Complete Set",
+                features: ["3-piece set", "Waterproof cushions", "Powder-coated frame", "Seats 4-5"]
+            },
+            {
+                id: 4,
+                name: "Swing Hanging Chair",
+                description: "Relaxing and modern design swing chair with sturdy steel frame. Includes comfortable cushion and weather-resistant canopy. Perfect for reading nooks.",
+                price: 18999,
+                image: "https://images.unsplash.com/photo-1501183638710-841dd1904471",
+                category: "seating",
+                badge: "Popular",
+                features: ["Canopy included", "Sturdy steel frame", "Comfort cushion", "Easy installation"]
+            },
+            {
+                id: 5,
+                name: "Outdoor Dining Set",
+                description: "6-piece outdoor dining set with extendable table. Perfect for family dinners and entertaining guests. Made with weather-resistant synthetic rattan.",
+                price: 42999,
+                image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+                category: "dining",
+                badge: "New Arrival",
+                features: ["6-piece set", "Extendable table", "Synthetic rattan", "Seats 6"]
+            },
+            {
+                id: 6,
+                name: "Patio Umbrella",
+                description: "Large market umbrella with tilt function and UV protection. Provides shade for outdoor seating areas. Available in multiple colors.",
+                price: 7999,
+                image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7",
+                category: "accessory",
+                badge: "Sale",
+                features: ["UV protection", "Tilt function", "Wind vent", "Multiple colors"]
+            },
+            {
+                id: 7,
+                name: "Outdoor Fire Pit Table",
+                description: "Modern fire pit table with propane fuel system. Provides warmth and ambiance for evening gatherings. Includes protective cover.",
+                price: 24999,
+                image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589",
+                category: "tables",
+                badge: "Trending",
+                features: ["Propane fuel", "Heat control", "Safety features", "Protective cover"]
+            },
+            {
+                id: 8,
+                name: "Garden Bench",
+                description: "Rustic wooden garden bench made from reclaimed teak. Perfect for garden pathways or entryways. Requires minimal maintenance.",
+                price: 12999,
+                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+                category: "seating",
+                badge: "Sustainable",
+                features: ["Reclaimed teak", "Rustic design", "Seats 3", "Weather-resistant"]
+            }
+        ];
+
+        // Testimonial data
+        const testimonials = [
+            {
+                text: "\"The outdoor sofa set transformed our patio into a comfortable entertainment area. It's durable, stylish, and has held up perfectly through monsoon season!\"",
+                author: "Priya Sharma, Mumbai"
+            },
+            {
+                text: "\"I love my new garden coffee table! It's the perfect addition to my balcony garden. The quality is exceptional and it was so easy to assemble.\"",
+                author: "Rohan Mehta, Delhi"
+            },
+            {
+                text: "\"The weather-resistant materials are no joke. Our outdoor furniture looks as good as new after a full year outside. Highly recommend!\"",
+                author: "Anjali Patel, Bangalore"
+            }
+        ];
+
+        // DOM elements
+        const productsContainer = document.getElementById('productsContainer');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productModal = document.getElementById('productModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
+        const cartCount = document.querySelector('.cart-count');
+        const testimonialSlides = document.querySelectorAll('.testimonial');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        const shopCollectionBtn = document.getElementById('shopCollectionBtn');
+        const newsletterForm = document.getElementById('newsletterForm');
+
+        // Initialize cart
+        let cart = [];
+        let cartItemCount = 2; // Starting with 2 items for demo
+        let currentTestimonial = 0;
+
+        // Render products
+        function renderProducts(filter = 'all') {
+            productsContainer.innerHTML = '';
+            
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(product => product.category === filter);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.dataset.category = product.category;
+                
+                productCard.innerHTML = `
+                    ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description.substring(0, 80)}...</p>
+                        <div class="product-price">₹${product.price.toLocaleString()}</div>
+                        <div class="product-actions">
+                            <button class="action-btn" data-id="${product.id}">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="action-btn secondary view-details-btn" data-id="${product.id}">
+                                <i class="fas fa-eye"></i> Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+            
+            // Add event listeners to the new buttons
+            document.querySelectorAll('.view-details-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.closest('button').dataset.id);
+                    openProductModal(productId);
+                });
+            });
+            
+            document.querySelectorAll('.action-btn:not(.secondary)').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.closest('button').dataset.id);
+                    addToCart(productId);
+                });
+            });
+        }
+
+        // Filter products
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter products
+                const filter = button.dataset.filter;
+                renderProducts(filter);
+            });
+        });
+
+        // Open product modal
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            
+            if (!product) return;
+            
+            modalContent.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="modal-image">
+                <div class="modal-info">
+                    <h2>${product.name}</h2>
+                    <div class="modal-price">₹${product.price.toLocaleString()}</div>
+                    <p class="modal-description">${product.description}</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul style="margin-bottom: 25px; color: var(--gray);">
+                        ${product.features.map(feature => `<li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> ${feature}</li>`).join('')}
+                    </ul>
+                    
+                    <h3>Outdoor Care Tips</h3>
+                    <p style="color: var(--gray); margin-bottom: 25px; font-size: 14px;">
+                        <i class="fas fa-info-circle" style="color: var(--accent); margin-right: 8px;"></i>
+                        For optimal durability, clean with mild soap and water regularly. Use protective covers during extreme weather. Store cushions indoors when not in use.
+                    </p>
+                    
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decreaseQty">-</button>
+                        <span class="quantity-value" id="quantityValue">1</span>
+                        <button class="quantity-btn" id="increaseQty">+</button>
+                        <span style="margin-left: 20px; color: var(--gray);">Quantity</span>
+                    </div>
+                    
+                    <button class="add-to-cart-large" data-id="${product.id}">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart - ₹${product.price.toLocaleString()}
+                    </button>
+                </div>
+            `;
+            
+            // Set up quantity controls
+            let quantity = 1;
+            const quantityValue = document.getElementById('quantityValue');
+            const decreaseBtn = document.getElementById('decreaseQty');
+            const increaseBtn = document.getElementById('increaseQty');
+            
+            decreaseBtn.addEventListener('click', () => {
+                if (quantity > 1) {
+                    quantity--;
+                    quantityValue.textContent = quantity;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', () => {
+                quantity++;
+                quantityValue.textContent = quantity;
+            });
+            
+            // Add to cart from modal
+            document.querySelector('.add-to-cart-large').addEventListener('click', () => {
+                addToCart(productId, quantity);
+                closeProductModal();
+            });
+            
+            // Show modal
+            productModal.style.display = 'flex';
+        }
+
+        // Close product modal
+        function closeProductModal() {
+            productModal.style.display = 'none';
+        }
+
+        // Add to cart
+        function addToCart(productId, quantity = 1) {
+            const product = products.find(p => p.id === productId);
+            
+            if (!product) return;
+            
+            // Check if product already in cart
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: quantity
+                });
+            }
+            
+            // Update cart count
+            cartItemCount += quantity;
+            cartCount.textContent = cartItemCount;
+            
+            // Show feedback
+            showNotification(`${product.name} added to cart!`);
+        }
+
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: var(--accent);
+                color: white;
+                padding: 15px 25px;
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                z-index: 3000;
+                font-weight: 500;
+                transform: translateX(150%);
+                transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(150%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Testimonial slider functionality
+        function showTestimonial(index) {
+            // Hide all testimonials
+            testimonialSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Remove active class from all dots
+            sliderDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show selected testimonial
+            testimonialSlides[index].classList.add('active');
+            sliderDots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        // Auto rotate testimonials
+        function autoRotateTestimonials() {
+            currentTestimonial = (currentTestimonial + 1) % testimonialSlides.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Event listeners for testimonial slider
+        sliderDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showTestimonial(index);
+            });
+        });
+
+        // Shop collection button
+        shopCollectionBtn.addEventListener('click', () => {
+            // Scroll to products section
+            document.querySelector('.products-grid').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Newsletter form submission
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('.newsletter-input');
+            
+            if (emailInput.value) {
+                showNotification('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            }
+        });
+
+        // Event listeners for modal
+        closeModal.addEventListener('click', closeProductModal);
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === productModal) {
+                closeProductModal();
+            }
+        });
+
+        // Initialize
+        renderProducts();
+        
+        // Start auto-rotating testimonials
+        let testimonialInterval = setInterval(autoRotateTestimonials, 5000);
+        
+        // Pause auto-rotation when hovering over testimonials
+        const testimonialSlider = document.querySelector('.testimonial-slider');
+        testimonialSlider.addEventListener('mouseenter', () => {
+            clearInterval(testimonialInterval);
+        });
+        
+        testimonialSlider.addEventListener('mouseleave', () => {
+            testimonialInterval = setInterval(autoRotateTestimonials, 5000);
+        });
+    </script>
+</body>
+</html>

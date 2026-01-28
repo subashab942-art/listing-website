@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --gray-color: #95a5a6;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            /* Hide side scroll */
+        }
+
+        /* Hide vertical scrollbar but allow scroll */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE/Edge */
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari */
+        }
+
+
+        /* HEADER */
+        header {
+            background: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header img {
+            width: 60px;
+        }
+
+        header nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* HERO / BANNER */
+        .hero {
+            position: relative;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            padding: 50px 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* BACKGROUND IMAGE + BLUR */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("/flipkart/img/banner.png") center/cover no-repeat;
+            filter: blur(1px);
+            transform: scale(1.1);
+            /* prevents blur edge gaps */
+            z-index: -2;
+        }
+
+        /* BLACK OVERLAY */
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            /* black shade */
+            z-index: -1;
+        }
+
+
+        /* Hero content */
+        .hero-content {
+            max-width: 1200px;
+            margin: auto;
+            width: 100%;
+        }
+
+        .hero-text {
+            max-width: 520px;
+        }
+
+        .hero-text h1 {
+            font-size: 100px;
+            margin-bottom: 50px;
+            color: #222;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Button */
+        .hero-text button {
+            margin-top: 25px;
+            padding: 14px 35px;
+            border: none;
+            background: #3D5A5E;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero-text button:hover {
+            background: #0B1415;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 50px 30px;
+        }
+
+        .section h2 {
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        /* CATEGORIES */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 6px;
+            /* reduced gap */
+            justify-items: center;
+            /* keeps circles centered */
+        }
+
+        .category {
+            width: 150px;
+            height: 150px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            /* 🔥 makes it circle */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            margin: auto;
+            /* centers inside grid */
+        }
+
+        .category:hover {
+            transform: translateY(-8px);
+        }
+
+        .category img {
+            width: 60px;
+        }
+
+        .category p {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+
+        /* PRODUCTS */
+        /* PRODUCTS GRID */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            align-items: start;
+            /* top-align all cards */
+        }
+
+        /* PRODUCT CARD */
+        .product {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            /* prevents image overflow */
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* hover effect */
+        .product:hover {
+            transform: translateY(-6px);
+        }
+
+        /* IMAGE */
+        .product img {
+            width: 100%;
+            /* full width of card */
+            height: 180px;
+            /* fixed height for uniformity */
+            object-fit: cover;
+            /* cover ensures image fills container */
+            border-top-left-radius: 14px;
+            border-top-right-radius: 14px;
+        }
+
+        /* PRODUCT TEXT BELOW IMAGE */
+        .product h4 {
+            margin: 10px 0 4px;
+            font-size: 16px;
+        }
+
+        .product span.price {
+            color: #e63946;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* RATING */
+        .product-rating {
+            margin: 4px 0;
+            color: #FFD700;
+            /* gold stars */
+            font-size: 14px;
+        }
+
+        /* RATING */
+        .product-rating {
+            margin: 6px 0;
+            color: #FFD700;
+            /* gold stars */
+            font-size: 14px;
+        }
+
+        /* LIKE BUTTON */
+        .like-btn {
+            margin-top: 8px;
+            border: none;
+            background: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #ccc;
+            /* default gray heart */
+        }
+
+        .like-btn.liked {
+            color: #e63946;
+            /* red heart when liked */
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 30px 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* SOCIAL MEDIA ICONS */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        /* Specific colors for social media icons */
+        .social-icon.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+        }
+
+        .social-icon.instagram:hover {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            border-color: transparent;
+        }
+
+        .social-icon.twitter:hover {
+            background: #1DA1F2;
+            border-color: #1DA1F2;
+        }
+
+        .social-icon.youtube:hover {
+            background: #FF0000;
+            border-color: #FF0000;
+        }
+
+        .social-icon.pinterest:hover {
+            background: #E60023;
+            border-color: #E60023;
+        }
+
+        /* Footer links */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Copyright */
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+        }
+
+        /* Newsletter section */
+        .newsletter {
+            margin: 30px 0;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .newsletter-btn {
+            padding: 12px 30px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-text {
+                margin: auto;
+            }
+
+            .hero-text h1 {
+                font-size: 60px;
+                margin-bottom: 30px;
+            }
+
+            .hero-text p {
+                font-size: 18px;
+            }
+
+            .category {
+                width: 120px;
+                height: 120px;
+            }
+
+            .categories {
+                gap: 4px;
+            }
+
+            .footer-links {
+                gap: 20px;
+            }
+
+            .social-media {
+                gap: 15px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-input {
+                min-width: 100%;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .category {
+                width: 100px;
+                height: 100px;
+            }
+
+            .category img {
+                width: 50px;
+            }
+
+            .footer-logo {
+                font-size: 28px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="nav"></div>
+
+
+    <!-- BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Discover Modern Furniture</h1>
+                <p>Upgrade your home with premium quality furniture at affordable prices.</p>
+                <button onclick="goShop()">Shop Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section">
+        <h2>Categories</h2>
+        <div class="categories">
+            <div class="category">
+                <img src="/flipkart/img/1.png">
+                <p>Chairs</p>
+            </div>
+            <div class="category">
+                <img src="/flipkart/img/sofam.png">
+                <p>Sofas</p>
+            </div>
+            <div class="category">
+                <img src="/flipkart/img/3.png">
+                <p>Beds</p>
+            </div>
+            <div class="category">
+                <img src="/flipkart/img/2.png">
+                <p>Tables</p>
+            </div>
+            <div class="category">
+                <img src="/flipkart/img/berow.webp">
+                <p>Wooden berow</p>
+            </div>
+            <div class="category">
+                <img src="/flipkart/img/2.png">
+                <p>Lamp</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="section">
+        <h2>Popular Products</h2>
+        <div class="products">
+            <div class="product">
+                <img src="/flipkart/img/chair.webp">
+                <h4>Wooden Chair</h4>
+                <div class="product-rating">
+                    <span>★ ★ ★ ★ ☆</span> <!-- 4/5 stars -->
+                </div>
+                <span>₹1,999</span>
+                <button class="like-btn" onclick="toggleLike(this)">❤</button>
+            </div>
+
+            <div class="product">
+                <img src="/flipkart/img/sofa.webp">
+                <h4>Sofa Set</h4>
+                <div class="product-rating">
+                    <span>★ ★ ★ ★ ★</span> <!-- 5/5 stars -->
+                </div>
+                <span>₹14,999</span>
+                <button class="like-btn" onclick="toggleLike(this)">❤</button>
+            </div>
+
+            <div class="product">
+                <img src="/flipkart/img/dinning.webp">
+                <h4>Dining Table</h4>
+                <div class="product-rating">
+                    <span>★ ★ ★ ☆ ☆</span> <!-- 3/5 stars -->
+                </div>
+                <span>₹9,499</span>
+                <button class="like-btn" onclick="toggleLike(this)">❤</button>
+            </div>
+             <div class="product">
+                <img src="/flipkart/img/dinning.webp">
+                <h4>Dining Table</h4>
+                <div class="product-rating">
+                    <span>★ ★ ★ ☆ ☆</span> <!-- 3/5 stars -->
+                </div>
+                <span>₹9,499</span>
+                <button class="like-btn" onclick="toggleLike(this)">❤</button>
+            </div>
+             <div class="product">
+                <img src="/flipkart/img/dinning.webp">
+                <h4>Dining Table</h4>
+                <div class="product-rating">
+                    <span>★ ★ ★ ☆ ☆</span> <!-- 3/5 stars -->
+                </div>
+                <span>₹9,499</span>
+                <button class="like-btn" onclick="toggleLike(this)">❤</button>
+            </div>
+             <div class="product">
+                <img src="/flipkart/img/dinning.webp">
+                <h4>Dining Table</h4>
+                <div class="product-rating">
+                    <span>★ ★ ★ ☆ ☆</span> <!-- 3/5 stars -->
+                </div>
+                <span>₹9,499</span>
+                <button class="like-btn" onclick="toggleLike(this)">❤</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Furni<span>Home</span></div>
+            <p class="footer-text">Bringing elegance and comfort to your home with our premium furniture collection since 2010.</p>
+            
+            <!-- NEWSLETTER -->
+            <div class="newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <div class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                    <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe</button>
+                </div>
+            </div>
+            
+            <!-- SOCIAL MEDIA ICONS -->
+            <div class="social-media">
+                <a href="#" class="social-icon facebook" title="Follow us on Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon instagram" title="Follow us on Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon twitter" title="Follow us on Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon youtube" title="Subscribe on YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon pinterest" title="Follow us on Pinterest">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+            </div>
+            
+            <!-- FOOTER LINKS -->
+            <div class="footer-links">
+                <a href="home.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="Privacy Policy.html">Privacy Policy</a>
+                <a href="Terms of Service.html">Terms of Service</a>
+                <a href="Shipping.html">Shipping Info</a>
+                <a href="Returns.html">Returns</a>
+            </div>
+            
+            <!-- CONTACT INFO -->
+            <div class="contact-info" style="color: rgba(255,255,255,0.7); margin: 20px 0; font-size: 14px;">
+                <p>📞 +91 98765 43210 | ✉️ hello@furnihome.com</p>
+                <p>🏢 24/1 Sakthi Nagar, Emour Road, Karur, Tamil Nadu, India 639007</p>
+            </div>
+            
+            <!-- COPYRIGHT -->
+            <div class="copyright">
+                © 2023 FurniHome. All rights reserved. | Privacy Policy | Terms of Service
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ✅ 1. Declare ACTIVE_PAGE FIRST */
+        window.ACTIVE_PAGE = "home";
+
+        /* SHOP BUTTON */
+        function goShop() {
+            window.location.href = "product-detailes.html";
+        }
+
+        /* LOAD NAVBAR + SET ACTIVE */
+        fetch("nav.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("nav").innerHTML = data;
+
+                // Apply active underline
+                document.querySelectorAll(".nav-center a").forEach(link => {
+                    link.classList.remove("active");
+
+                    if (link.dataset.page === window.ACTIVE_PAGE) {
+                        link.classList.add("active");
+                    }
+                });
+            })
+            .catch(err => console.error(err));
+
+        /* LIKE BUTTON */
+        function toggleLike(button) {
+            button.classList.toggle("liked");
+        }
+
+        /* NEWSLETTER SUBSCRIPTION */
+        function subscribeNewsletter() {
+            const emailInput = document.querySelector('.newsletter-input');
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                alert('Please enter your email address');
+                emailInput.focus();
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address');
+                emailInput.focus();
+                return;
+            }
+            
+            // In a real application, you would send this to a server
+            // For now, we'll just show a success message
+            alert(`Thank you for subscribing with ${email}! You'll receive our latest updates soon.`);
+            emailInput.value = '';
+        }
+
+        /* EMAIL VALIDATION */
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        /* SOCIAL MEDIA CLICK HANDLERS */
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('click', function(e) {
+                e.preventDefault();
+                const platform = this.classList[1]; // facebook, instagram, etc.
+                const platformNames = {
+                    'facebook': 'Facebook',
+                    'instagram': 'Instagram',
+                    'twitter': 'Twitter',
+                    'youtube': 'YouTube',
+                    'pinterest': 'Pinterest'
+                };
+                
+                alert(`You clicked on our ${platformNames[platform]} link! In a real website, this would take you to our ${platformNames[platform]} page.`);
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

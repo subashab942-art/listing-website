@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splash Screen</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("/zomoto/img/background.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Container */
+.splash {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo */
+.logo {
+    width: 300px;
+    height: 300px;
+    background-image: url("/zomoto/img/Group 21.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: logoMove 2s ease forwards;
+}
+
+/* Text */
+.text {
+    font-size: 80px;
+    font-weight: bold;
+    color: #070000;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    animation: textMove 2s ease forwards;
+    animation-delay: 0.2s;
+}
+
+/* Logo animation (from left) */
+@keyframes logoMove {
+    0% {
+        transform: translateX(-150px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Text animation (from right) */
+@keyframes textMove {
+    0% {
+        transform: translateX(150px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="splash">
+    <div class="logo"></div>
+    <div class="text">Furniture.</div>
+</div>
+
+<script>
+    setTimeout(function () {
+        window.location.href = "detailes.html"; // change path if needed
+    }, 3000); // 3000ms = 3 seconds
+</script>
+
+</body>
+</html>

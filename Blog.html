@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | FurniHome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #3D5A5E;
+            --primary-light: #5a7a7e;
+            --primary-dark: #2a4548;
+            --secondary: #e67e22;
+            --secondary-light: #f39c12;
+            --accent: #2ecc71;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --gray-light: #ecf0f1;
+            --radius: 20px;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            left: 0;
+            bottom: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(61, 90, 94, 0.85), rgba(61, 90, 94, 0.75)),
+                url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 140px 20px 100px;
+            position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .search-bar {
+            max-width: 500px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 18px 60px 18px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-bar button:hover {
+            background: var(--secondary-light);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        /* BLOG FILTER */
+        .blog-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            background: white;
+            border: 2px solid var(--gray-light);
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* FEATURED POST */
+        .featured-post {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 400px;
+        }
+
+        .featured-image {
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .featured-post:hover .featured-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-content {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .featured-content h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .featured-content p {
+            color: var(--gray);
+            font-size: 17px;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        /* BLOG GRID */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        /* BLOG CARD */
+        .blog-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .category-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .card-meta i {
+            color: var(--secondary);
+        }
+
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 22px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .card-content p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--secondary-light);
+            gap: 12px;
+        }
+
+        .share-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gray-light);
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .share-btn:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* PAGINATION */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 60px;
+        }
+
+        .page-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--gray-light);
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* NEWSLETTER */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 80px 40px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 100px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        .newsletter-form button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--secondary-light);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                min-height: 300px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .featured-content h2 {
+                font-size: 28px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 100px 20px 60px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .blog-card, .featured-post {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .blog-card:nth-child(2) { animation-delay: 0.1s; }
+        .blog-card:nth-child(3) { animation-delay: 0.2s; }
+        .blog-card:nth-child(4) { animation-delay: 0.3s; }
+        .blog-card:nth-child(5) { animation-delay: 0.4s; }
+        .blog-card:nth-child(6) { animation-delay: 0.5s; }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-couch"></i>
+                FurniHome
+            </a>
+            <div class="nav-links">
+                <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                <a href="Blog.html" class="active"><i class="fas fa-blog"></i> Blog</a>
+                <a href="shop.html"><i class="fas fa-shopping-cart"></i> Shop</a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>FurniHome Blog</h1>
+            <p>Discover expert tips, design inspiration, and the latest trends in home furnishing and interior design.</p>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for articles, tips, or ideas...">
+                <button type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- BLOG FILTER -->
+        <div class="blog-filter">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-th-large"></i> All Posts
+            </button>
+            <button class="filter-btn" data-filter="decor">
+                <i class="fas fa-paint-roller"></i> Decor Ideas
+            </button>
+            <button class="filter-btn" data-filter="design">
+                <i class="fas fa-pencil-ruler"></i> Design Tips
+            </button>
+            <button class="filter-btn" data-filter="space">
+                <i class="fas fa-home"></i> Space Saving
+            </button>
+            <button class="filter-btn" data-filter="sustainable">
+                <i class="fas fa-leaf"></i> Sustainable Living
+            </button>
+            <button class="filter-btn" data-filter="diy">
+                <i class="fas fa-tools"></i> DIY Projects
+            </button>
+        </div>
+
+        <!-- FEATURED POST -->
+        <div class="featured-post">
+            <div class="featured-image">
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6" alt="Modern Living Room Design">
+            </div>
+            <div class="featured-content">
+                <span class="featured-badge">Featured Article</span>
+                <h2>The Future of Sustainable Furniture: Eco-Friendly Design That Doesn't Compromise Style</h2>
+                <p>Discover how modern sustainable furniture combines environmental responsibility with stunning aesthetics. Learn about the latest materials, production methods, and design trends shaping the future of eco-conscious home furnishing.</p>
+                <div class="card-meta" style="margin-bottom: 30px;">
+                    <span><i class="far fa-calendar"></i> January 27, 2026</span>
+                    <span><i class="far fa-clock"></i> 8 min read</span>
+                    <span><i class="far fa-comments"></i> 24 comments</span>
+                </div>
+                <a href="#" class="read-more">
+                    Read Full Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- BLOG GRID -->
+        <div class="blog-grid">
+            <!-- Blog Card 1 -->
+            <div class="blog-card" data-category="decor">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1560184897-6f6c5c6ef5d1" alt="Living Room Decor">
+                    <span class="category-tag">Decor Ideas</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="far fa-calendar"></i> Jan 15, 2026</span>
+                        <span><i class="far fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h3>Top 10 Living Room Decor Ideas for Modern Homes</h3>
+                    <p>Discover stylish and functional design ideas to transform your living room into a cozy haven that reflects your personality while maximizing comfort and utility.</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="share-options">
+                            <a href="#" class="share-btn" aria-label="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn" aria-label="Share on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card" data-category="design">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="Bedroom Makeover">
+                    <span class="category-tag">Design Tips</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="far fa-calendar"></i> Jan 10, 2026</span>
+                        <span><i class="far fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3>Complete Bedroom Makeover Guide: From Color Schemes to Layout</h3>
+                    <p>Learn professional tips on choosing colors, furniture, and layouts that create a peaceful bedroom retreat perfect for relaxation and rejuvenation.</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="share-options">
+                            <a href="#" class="share-btn" aria-label="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn" aria-label="Share on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card" data-category="space">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1582582621959-48d27397dc69" alt="Outdoor Spaces">
+                    <span class="category-tag">Space Saving</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="far fa-calendar"></i> Jan 5, 2026</span>
+                        <span><i class="far fa-clock"></i> 7 min read</span>
+                    </div>
+                    <h3>Maximizing Small Outdoor Spaces: Balcony & Patio Solutions</h3>
+                    <p>From compact patios to tiny balconies, explore innovative ideas to make your outdoor areas inviting, stylish, and functional regardless of size constraints.</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="share-options">
+                            <a href="#" class="share-btn" aria-label="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn" aria-label="Share on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 4 -->
+            <div class="blog-card" data-category="design">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed" alt="Office Productivity">
+                    <span class="category-tag">Design Tips</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="far fa-calendar"></i> Dec 28, 2025</span>
+                        <span><i class="far fa-clock"></i> 8 min read</span>
+                    </div>
+                    <h3>Designing a Home Office for Maximum Productivity & Comfort</h3>
+                    <p>Check out essential furniture tips, optimal layouts, and lighting solutions to enhance your workspace efficiency while maintaining ergonomic comfort.</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="share-options">
+                            <a href="#" class="share-btn" aria-label="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn" aria-label="Share on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 5 -->
+            <div class="blog-card" data-category="sustainable">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" alt="Sustainable Materials">
+                    <span class="category-tag">Sustainable Living</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="far fa-calendar"></i> Dec 20, 2025</span>
+                        <span><i class="far fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3>Choosing Sustainable Materials: A Guide to Eco-Friendly Furniture</h3>
+                    <p>Learn how to identify truly sustainable furniture materials and make informed choices that benefit both your home environment and the planet.</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="share-options">
+                            <a href="#" class="share-btn" aria-label="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn" aria-label="Share on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 6 -->
+            <div class="blog-card" data-category="diy">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd" alt="DIY Projects">
+                    <span class="category-tag">DIY Projects</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="far fa-calendar"></i> Dec 15, 2025</span>
+                        <span><i class="far fa-clock"></i> 10 min read</span>
+                    </div>
+                    <h3>5 Weekend DIY Furniture Projects for Beginners</h3>
+                    <p>Transform your space with these easy-to-follow DIY furniture projects that require minimal tools and deliver maximum impact on your home decor.</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="share-options">
+                            <a href="#" class="share-btn" aria-label="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn" aria-label="Share on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+            <button class="page-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- NEWSLETTER -->
+        <div class="newsletter">
+            <div class="newsletter-content">
+                <h2>Never Miss a Post</h2>
+                <p>Subscribe to our newsletter and get the latest home design tips, exclusive offers, and blog updates delivered straight to your inbox.</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                
+                <p style="font-size: 14px; margin-top: 20px; opacity: 0.7;">
+                    <i class="fas fa-lock"></i> We respect your privacy. Unsubscribe at any time.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>FurniHome Blog</h3>
+                <p style="color: var(--gray-light); margin-bottom: 20px;">Your go-to resource for home design inspiration, furniture tips, and sustainable living ideas.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Pinterest">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Popular Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Decor Ideas</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Design Tips</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Space Saving</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Sustainable Living</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> DIY Projects</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="Privacy Policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="Terms of Service.html"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Submit a Guest Post</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 FurniHome. All rights reserved. | <a href="#" style="color: #fff; text-decoration: underline;">Privacy Policy</a> | <a href="#" style="color: #fff; text-decoration: underline;">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 13px;">Designed with <i class="fas fa-heart" style="color: #e67e22;"></i> for home decor enthusiasts</p>
+        </div>
+    </footer>
+
+    <script>
+        // Blog Filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide cards based on filter
+                    blogCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'flex';
+                            card.style.animation = 'fadeInUp 0.6s ease forwards';
+                        } else {
+                            const cardCategory = card.getAttribute('data-category');
+                            if (cardCategory === filterValue) {
+                                card.style.display = 'flex';
+                                card.style.animation = 'fadeInUp 0.6s ease forwards';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-bar input');
+            const searchButton = document.querySelector('.search-bar button');
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    // Show all cards if search is empty
+                    blogCards.forEach(card => {
+                        card.style.display = 'flex';
+                        card.style.animation = 'fadeInUp 0.6s ease forwards';
+                    });
+                    return;
+                }
+                
+                blogCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const content = card.querySelector('p').textContent.toLowerCase();
+                    const category = card.getAttribute('data-category');
+                    
+                    if (title.includes(searchTerm) || content.includes(searchTerm) || category.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                        card.style.animation = 'fadeInUp 0.6s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // Pagination
+            const pageButtons = document.querySelectorAll('.page-btn:not(:first-child):not(:last-child)');
+            
+            pageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all page buttons
+                    pageButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Simulate page change
+                    const currentPage = this.textContent;
+                    alert(`Loading page ${currentPage}... (This is a demo)`);
+                });
+            });
+            
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                const email = emailInput.value;
+                
+                if (email) {
+                    alert(`Thank you for subscribing with ${email}! You'll receive our next newsletter soon.`);
+                    emailInput.value = '';
+                }
+            });
+            
+            // Share buttons
+            const shareButtons = document.querySelectorAll('.share-btn');
+            
+            shareButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const platform = this.querySelector('i').classList.contains('fa-facebook-f') ? 'Facebook' : 'Twitter';
+                    alert(`Sharing to ${platform}... (This is a demo)`);
+                });
+            });
+            
+            // Read more buttons
+            const readMoreButtons = document.querySelectorAll('.read-more');
+            
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const articleTitle = this.closest('.blog-card, .featured-post').querySelector('h2, h3').textContent;
+                    alert(`Loading article: "${articleTitle}" (This is a demo)`);
+                });
+            });
+            
+            // Initialize animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            blogCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

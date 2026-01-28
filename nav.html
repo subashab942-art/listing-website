@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* NAVBAR */
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #ffffff;
+        padding: 14px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        /* Hide side scroll */
+    }
+
+    /* Hide vertical scrollbar but allow scroll */
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari */
+    }
+
+    /* LEFT */
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-left img {
+        width: 45px;
+    }
+
+    .brand {
+        font-size: 20px;
+        font-weight: bold;
+        color: #3D5A5E;
+    }
+
+    /* CENTER MENU */
+    .nav-center a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .nav-center a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        background: #3D5A5E;
+        transition: 0.3s;
+    }
+
+    .nav-center a:hover::after,
+    .nav-center a.active::after {
+        width: 100%;
+    }
+
+    /* RIGHT */
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .icon {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .profile {
+        width: 36px;
+        height: 36px;
+        background: #3D5A5E;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+        .nav-center {
+            display: none;
+        }
+    }
+    .nav-center a {
+    position: relative;
+}
+
+.nav-center a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #3D5A5E;
+    transition: width 0.3s ease;
+}
+
+.nav-center a.active::after {
+    width: 100% !important;
+}
+
+</style>
+
+<body>
+    <header class="navbar">
+        <div class="nav-left">
+            <img src="/flipkart/img/logo.png" alt="Logo">
+            <span class="brand">FurniHome</span>
+        </div>
+
+       <nav class="nav-center">
+    <a href="home.html" data-page="home">Home</a>
+    <a href="shop.html" data-page="shop">Shop</a>
+    <a href="categories.html" data-page="categories">Categories</a>
+    <a href="about.html" data-page="about">About</a>
+    <a href="contact.html" data-page="contact">Contact</a>
+</nav>
+
+
+        <div class="nav-right">
+            <span class="icon">🔍</span>
+            <span class="icon">🛒</span>
+            <span class="profile">AB</span>
+        </div>
+    </header>
+<script>
+/* 🔐 Safety: default value */
+window.ACTIVE_PAGE = window.ACTIVE_PAGE || "";
+
+fetch("nav.html")
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById("nav").innerHTML = html;
+
+        // Force reflow (important for ::after underline)
+        requestAnimationFrame(() => {
+            document.querySelectorAll(".nav-center a").forEach(link => {
+                link.classList.remove("active");
+
+                // Debug-safe compare
+                if (link.dataset.page === window.ACTIVE_PAGE) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    })
+    .catch(err => console.error("Navbar load error:", err));
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop – FurniHome | Modern Furniture Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <style>
+        /* ===== GLOBAL VARIABLES & RESET ===== */
+        :root {
+            --primary-color: #1a1f2c;
+            --secondary-color: #e76f51;
+            --accent-color: #2a9d8f;
+            --light-color: #f8f9fa;
+            --dark-color: #1a1f2c;
+            --gray-color: #8d99ae;
+            --light-gray: #f5f7fb;
+            --border-radius: 16px;
+            --border-radius-sm: 12px;
+            --box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --box-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark-color);
+            line-height: 1.2;
+        }
+
+        /* ===== SMOOTH SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #238a7d;
+        }
+
+        /* ===== BANNER SECTION ===== */
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-top: 0;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transform: scale(1.05);
+            transition: transform 8s ease-out;
+        }
+
+        .banner:hover .banner-image {
+            transform: scale(1.1);
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 31, 44, 0.85) 0%, rgba(26, 31, 44, 0.6) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .banner-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .banner-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .banner-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .banner-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .banner-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3);
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .banner-btn:hover {
+            background: #d65c3e;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(231, 111, 81, 0.4);
+        }
+
+        .banner-btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+            box-shadow: none;
+        }
+
+        .banner-btn.secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .banner-btn i {
+            font-size: 16px;
+            vertical-align: middle;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .shop-header {
+            padding: 80px 30px 40px;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffffff, var(--light-gray));
+        }
+
+        .shop-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .shop-header p {
+            color: var(--gray-color);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 10px auto 0;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* ===== FILTER BAR ===== */
+        .filters-container {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 1200px;
+            margin: -40px auto 40px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        .filters-header h3 {
+            font-size: 22px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+        }
+
+        .clear-filters {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            padding: 8px 16px;
+            border-radius: 30px;
+            line-height: 1;
+        }
+
+        .clear-filters:hover {
+            background: rgba(231, 111, 81, 0.1);
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            border: 2px solid #e0e0e0;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .filter-btn i {
+            font-size: 14px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 31, 44, 0.1);
+        }
+
+        .filter-btn.active {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        /* ===== PRODUCTS GRID ===== */
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px 80px;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .products-header h2 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .product-count {
+            color: var(--gray-color);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* ===== PRODUCT CARD ===== */
+        .product {
+            background: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+            border-color: var(--accent-color);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1;
+        }
+
+        .badge-new {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .badge-popular {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .badge-sale {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .product-img-container {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: #f9f9f9;
+        }
+
+        .product img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .product:hover img {
+            transform: scale(1.08);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 31, 44, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .product-img-container:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .quick-view-btn {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(20px);
+            opacity: 0;
+            line-height: 1;
+        }
+
+        .product-img-container:hover .quick-view-btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .quick-view-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .product-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .product-category {
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.4;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .product-title:hover {
+            color: var(--secondary-color);
+        }
+
+        .product-description {
+            color: var(--gray-color);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .product-stars {
+            color: #FFD166;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .rating-count {
+            color: var(--gray-color);
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            line-height: 1;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .action-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 18px;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .action-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            grid-column: 1 / -1;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .empty-state i {
+            font-size: 80px;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+        }
+
+        .empty-state h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .empty-state p {
+            color: var(--gray-color);
+            max-width: 500px;
+            margin: 0 auto 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .empty-state-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            line-height: 1;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .empty-state-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* ===== MODERN MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 31, 44, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-slow);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .product-modal {
+            background: white;
+            border-radius: var(--border-radius);
+            max-width: 1200px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .product-modal {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(231, 111, 81, 0.3);
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: #d65c3e;
+            transform: rotate(90deg);
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .modal-content {
+                flex-direction: row;
+                gap: 50px;
+            }
+        }
+
+        .modal-image-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .main-image-container {
+            position: relative;
+            background: #f9f9f9;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 5;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            line-height: 1;
+        }
+
+        .image-nav:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .image-nav.prev {
+            left: 20px;
+        }
+
+        .image-nav.next {
+            right: 20px;
+        }
+
+        .thumbnail-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+        }
+
+        .thumbnail {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 3px solid transparent;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .thumbnail.active {
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(231, 111, 81, 0.2);
+        }
+
+        .modal-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .modal-category {
+            color: var(--accent-color);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .modal-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .modal-rating {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .modal-stars {
+            color: #FFD166;
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .modal-price {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            line-height: 1;
+        }
+
+        .modal-description {
+            color: var(--gray-color);
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .modal-features {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .modal-features h4 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 1;
+        }
+
+        .features-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .features-list li i {
+            color: var(--accent-color);
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: auto;
+            padding-top: 30px;
+            border-top: 1px solid #f0f0f0;
+            align-items: center;
+        }
+
+        .modal-btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-size: 16px;
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            line-height: 1;
+            text-align: center;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #131722;
+            box-shadow: 0 15px 30px rgba(26, 31, 44, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #d65c3e;
+            box-shadow: 0 15px 30px rgba(231, 111, 81, 0.3);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* ===== MODERN FOOTER ===== */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 80px 30px 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: start;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .footer-links h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            line-height: 1;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            line-height: 1.4;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .newsletter-section {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+        }
+
+        .newsletter-section h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .newsletter-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 16px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            height: 50px;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .newsletter-btn {
+            padding: 16px 35px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 50px;
+            line-height: 1;
+        }
+
+        .newsletter-btn:hover {
+            background: #d65c3e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: var(--transition);
+            line-height: 1;
+        }
+
+        .social-icon:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            padding-top: 40px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.6;
+        }
+
+        /* ===== PRICE SLIDER ===== */
+        .price-range {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #f0f0f0;
+            width: 100%;
+        }
+
+        .price-range h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .range-values {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--gray-color);
+            line-height: 1;
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 5px;
+            -webkit-appearance: none;
+            background: #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(231, 111, 81, 0.3);
+        }
+
+        /* ===== SORTING OPTIONS ===== */
+        .sort-options {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .sort-select {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+            line-height: 1;
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            grid-column: 1 / -1;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .banner-content h1 {
+                font-size: 48px;
+            }
+
+            .shop-header h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+
+            .banner {
+                height: 400px;
+            }
+
+            .banner-content h1 {
+                font-size: 40px;
+            }
+
+            .modal-content {
+                flex-direction: column;
+            }
+
+            .main-image-container {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                height: 350px;
+                border-radius: 0 0 20px 20px;
+            }
+
+            .banner-content h1 {
+                font-size: 36px;
+            }
+
+            .banner-content p {
+                font-size: 18px;
+            }
+
+            .banner-btn {
+                padding: 16px 30px;
+            }
+
+            .banner-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .banner-btn,
+            .banner-btn.secondary {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .filters-container {
+                margin: -30px 20px 30px;
+                padding: 25px;
+            }
+
+            .filters-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .filters {
+                justify-content: center;
+            }
+
+            .shop-header {
+                padding: 60px 20px 30px;
+            }
+
+            .shop-header h1 {
+                font-size: 36px;
+            }
+
+            .products-container {
+                padding: 0 20px 60px;
+            }
+
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .modal-content {
+                padding: 25px;
+            }
+
+            .modal-title {
+                font-size: 28px;
+            }
+
+            .modal-price {
+                font-size: 36px;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .modal-btn {
+                width: 100%;
+            }
+
+            .footer-grid {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .banner {
+                height: 300px;
+            }
+
+            .banner-content h1 {
+                font-size: 32px;
+            }
+
+            .banner-content p {
+                font-size: 16px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .sort-options {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 24px;
+            }
+
+            .modal-price {
+                font-size: 32px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input,
+            .newsletter-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div id="nav"></div>
+
+    <!-- BANNER SECTION -->
+    <section class="banner">
+        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            alt="Furniture Showroom" class="banner-image">
+        <div class="banner-overlay">
+            <div class="banner-content">
+                <h1>Curated Furniture Collection</h1>
+                <p>Discover handcrafted pieces that blend modern design with timeless elegance. Transform your space
+                    with furniture that tells a story.</p>
+                <div class="banner-btns">
+                    <a href="#products" class="banner-btn" onclick="event.preventDefault(); scrollToProductsSection();">
+                        <i class="fas fa-shopping-bag"></i> Explore Collection
+                    </a>
+                    <a href="#filters" class="banner-btn secondary" onclick="event.preventDefault(); scrollToFilterSection();">
+                        <i class="fas fa-filter"></i> Browse Categories
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE HEADER -->
+    <div class="shop-header">
+        <h1>Designer Furniture</h1>
+        <p>Each piece is crafted with precision, blending functionality with aesthetic appeal for modern living spaces.
+        </p>
+    </div>
+
+    <!-- FILTERS SECTION -->
+    <div class="filters-container" id="filters">
+        <div class="filters-header">
+            <h3><i class="fas fa-sliders-h"></i> Filter Products</h3>
+            <button class="clear-filters" onclick="clearFilters()">
+                <i class="fas fa-times"></i> Clear All
+            </button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-th-large"></i> All
+            </button>
+            <button class="filter-btn" data-filter="chairs">
+                <i class="fas fa-chair"></i> Chairs
+            </button>
+            <button class="filter-btn" data-filter="sofas">
+                <i class="fas fa-couch"></i> Sofas
+            </button>
+            <button class="filter-btn" data-filter="beds">
+                <i class="fas fa-bed"></i> Beds
+            </button>
+            <button class="filter-btn" data-filter="berow">
+                <i class="fas fa-archive"></i> Storage
+            </button>
+            <button class="filter-btn" data-filter="tables">
+                <i class="fas fa-table"></i> Tables
+            </button>
+        </div>
+
+        <div class="price-range">
+            <h4>Price Range</h4>
+            <div class="range-values">
+                <span id="minPrice">₹1,999</span>
+                <span id="maxPrice">₹24,999</span>
+            </div>
+            <input type="range" class="range-slider" id="priceSlider" min="1999" max="24999" value="24999">
+        </div>
+    </div>
+
+    <!-- PRODUCTS SECTION -->
+    <div class="products-container" id="products">
+        <div class="products-header">
+            <h2>Featured Collection</h2>
+            <div class="sort-options">
+                <span class="product-count" id="productCount">8 Products</span>
+                <select class="sort-select" id="sortSelect" onchange="sortProducts()">
+                    <option value="default">Sort by: Default</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products" id="productsGrid">
+            <!-- Products will be dynamically generated -->
+        </div>
+    </div>
+
+    <!-- PRODUCT MODAL -->
+    <div class="modal-overlay" id="productModalOverlay">
+        <div class="product-modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content">
+                <div class="modal-image-container">
+                    <div class="main-image-container">
+                        <button class="image-nav prev" onclick="previousImage()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <img class="modal-image" id="modalMainImage" src="" alt="Product Image">
+                        <button class="image-nav next" onclick="nextImage()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="thumbnail-container" id="thumbnailContainer">
+                        <!-- Thumbnails will be added via JavaScript -->
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="modal-category" id="modalCategory"></div>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+
+                    <div class="modal-rating">
+                        <div class="modal-stars" id="modalStars"></div>
+                        <span class="rating-count" id="modalRatingCount"></span>
+                    </div>
+
+                    <div class="modal-price" id="modalPrice"></div>
+
+                    <p class="modal-description" id="modalDescription"></p>
+
+                    <div class="modal-features">
+                        <h4><i class="fas fa-star"></i> Features & Specifications</h4>
+                        <ul class="features-list" id="modalFeatures">
+                            <!-- Features will be added via JavaScript -->
+                        </ul>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="modal-btn btn-primary" id="addToCartBtn">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="modal-btn btn-secondary" id="buyNowBtn">
+                            <i class="fas fa-bolt"></i> Buy Now
+                        </button>
+                        <button class="modal-btn btn-outline" id="addToWishlistBtn">
+                            <i class="far fa-heart"></i> Add to Wishlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">Furni<span>Home</span></div>
+                    <p class="footer-text">Creating beautiful spaces with handcrafted furniture since 2010. Quality,
+                        design, and sustainability at the heart of everything we do.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="Living Room.html">Living Room</a></li>
+                        <li><a href="Bedroom.html">Bedroom</a></li>
+                        <li><a href="Dining Room.html">Dining Room</a></li>
+                        <li><a href="Office.html">Office</a></li>
+                        <li><a href="Outdoor.html">Outdoor</a></li>
+                        <li><a href="New Arrivals.html">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="Sustainability.html">Sustainability</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="Press.html">Press</a></li>
+                        <li><a href="Blog.html">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="Shipping.html">Shipping</a></li>
+                        <li><a href="Returns.html">Returns</a></li>
+                        <li><a href="Warranty.html">Warranty</a></li>
+                        <li><a href="FAQ.html">FAQ</a></li>
+                        <li><a href="Size Guide.html">Size Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="newsletter-section">
+                <h3>Stay in the Loop</h3>
+                <p>Subscribe to receive updates on new arrivals, exclusive offers, and design inspiration.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" id="newsletterEmail">
+                    <button class="newsletter-btn" onclick="subscribeNewsletter()">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <div class="copyright">
+                © 2023 FurniHome. All rights reserved. | <a href="#"
+                    style="color: rgba(255,255,255,0.8); text-decoration: none;">Privacy Policy</a> | <a href="#"
+                    style="color: rgba(255,255,255,0.8); text-decoration: none;">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            /* 🔹 SET ACTIVE PAGE */
+            window.ACTIVE_PAGE = "shop";
+
+            /* 🔹 LOAD NAVBAR */
+            fetch("nav.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("nav").innerHTML = data;
+
+                    // Apply active underline AFTER navbar loads
+                    document.querySelectorAll(".nav-center a").forEach(link => {
+                        link.classList.remove("active");
+                        if (link.dataset.page === window.ACTIVE_PAGE) {
+                            link.classList.add("active");
+                        }
+                    });
+                })
+                .catch(err => {
+                    console.log("Navbar not found, continuing without it");
+                });
+
+            /* 🔹 ENHANCED PRODUCT DATA */
+            const productsData = [
+                {
+                    id: 1,
+                    name: "Nordic Wooden Chair",
+                    category: "chairs",
+                    price: 1999,
+                    originalPrice: 2499,
+                    images: [
+                        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhaXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    rating: 4,
+                    ratingCount: 124,
+                    description: "Handcrafted wooden chair with Scandinavian-inspired design. Features an ergonomic curved backrest and sustainably sourced solid oak wood construction. Perfect for dining rooms, home offices, or as a statement accent piece.",
+                    features: [
+                        "Solid oak wood construction",
+                        "Ergonomic back support",
+                        "Water-resistant natural finish",
+                        "Easy 15-minute assembly",
+                        "Weight capacity: 250 lbs",
+                        "Made from sustainable materials"
+                    ],
+                    dimensions: "18'' W x 20'' D x 36'' H",
+                    material: "Solid Oak Wood",
+                    color: "Natural Wood Finish",
+                    stock: 45,
+                    badge: "new",
+                    deliveryTime: "3-5 business days"
+                },
+                {
+                    id: 2,
+                    name: "Luxury Leather Sofa",
+                    category: "sofas",
+                    price: 14999,
+                    originalPrice: 19999,
+                    images: [
+                        "https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c29mYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    rating: 5,
+                    ratingCount: 203,
+                    description: "Premium leather sofa designed for ultimate comfort and sophistication. Features deep seating, high-density foam cushions, and a solid hardwood frame. This timeless piece adds elegance to any living room.",
+                    features: [
+                        "100% genuine leather upholstery",
+                        "High-density foam cushions",
+                        "Solid hardwood frame construction",
+                        "Includes 2 decorative throw pillows",
+                        "10-year warranty on frame",
+                        "Available in 4 colors"
+                    ],
+                    dimensions: "86'' W x 38'' D x 32'' H",
+                    material: "Genuine Leather & Hardwood",
+                    color: "Classic Brown",
+                    stock: 12,
+                    badge: "sale",
+                    deliveryTime: "5-7 business days"
+                },
+                {
+                    id: 3,
+                    name: "Modern Platform Bed",
+                    category: "beds",
+                    price: 18499,
+                    originalPrice: 22999,
+                    images: [
+                        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVkfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    rating: 5,
+                    ratingCount: 167,
+                    description: "Minimalist platform bed with an upholstered headboard for modern bedrooms. Features integrated side tables and under-bed storage compartments. The low-profile design creates a spacious feel in any room.",
+                    features: [
+                        "Upholstered fabric headboard",
+                        "Integrated under-bed storage",
+                        "Solid wood slat system",
+                        "Easy assembly with tools included",
+                        "15-year structural warranty",
+                        "Support for all mattress types"
+                    ],
+                    dimensions: "76'' W x 80'' L x 42'' H",
+                    material: "Fabric & Solid Wood",
+                    color: "Charcoal Gray",
+                    stock: 6,
+                    badge: "popular",
+                    deliveryTime: "7-10 business days"
+                },
+                {
+                    id: 4,
+                    name: "Minimalist Dresser",
+                    category: "berow",
+                    price: 12499,
+                    originalPrice: 15999,
+                    images: [
+                        "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJlc3NlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    rating: 4,
+                    ratingCount: 89,
+                    description: "Sleek wooden dresser with ample storage space for bedroom organization. Features smooth-gliding drawers with a scratch-resistant finish and modern minimalist design that complements any decor style.",
+                    features: [
+                        "6 spacious drawers",
+                        "Smooth ball-bearing slides",
+                        "Anti-tip safety device included",
+                        "Scratch-resistant matte finish",
+                        "Includes matching mirror",
+                        "Soft-close drawer mechanism"
+                    ],
+                    dimensions: "60'' W x 18'' D x 32'' H",
+                    material: "Solid Mahogany Wood",
+                    color: "Cherry Wood Finish",
+                    stock: 8,
+                    badge: null,
+                    deliveryTime: "5-7 business days"
+                },
+                {
+                    id: 5,
+                    name: "Extendable Dining Table",
+                    category: "tables",
+                    price: 9499,
+                    originalPrice: 11999,
+                    images: [
+                        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFibGV8ZW58MHx8MHx8fDA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1565791389712-14ba8d15d8e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    rating: 4,
+                    ratingCount: 134,
+                    description: "Versatile solid wood dining table with extendable leaves to accommodate both intimate dinners and large gatherings. Crafted from sustainable teak wood with a durable, easy-to-clean surface.",
+                    features: [
+                        "Seats 6-10 people (extendable)",
+                        "Solid teak wood construction",
+                        "Hidden extension leaves",
+                        "Scratch and stain resistant",
+                        "Easy 30-minute assembly",
+                        "Lifetime warranty on tabletop"
+                    ],
+                    dimensions: "72'' L x 40'' W x 30'' H",
+                    material: "Solid Teak Wood",
+                    color: "Natural Wood with Black Accents",
+                    stock: 15,
+                    badge: "new",
+                    deliveryTime: "3-5 business days"
+                },
+                {
+                    id: 6,
+                    name: "Ergonomic Office Chair",
+                    category: "chairs",
+                    price: 3499,
+                    originalPrice: 4499,
+                    images: [
+                        "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hhaXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1580494767366-8c5c9d30f511?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    rating: 5,
+                    ratingCount: 156,
+                    description: "Professional office chair engineered for all-day comfort during long working hours. Features adjustable height, lumbar support, breathable mesh back, and 360-degree swivel rotation for maximum productivity.",
+                    features: [
+                        "Adjustable seat height and depth",
+                        "Dynamic lumbar support system",
+                        "360° smooth swivel rotation",
+                        "Breathable mesh back panel",
+                        "5-year comprehensive warranty",
+                        "Adjustable armrests"
+                    ],
+                    dimensions: "25'' W x 27'' D x 45'' H",
+                    material: "Premium Mesh & PU Leather",
+                    color: "Professional Black",
+                    stock: 32,
+                    badge: "popular",
+                    deliveryTime: "2-4 business days"
+                },
+                {
+                    id: 7,
+                    name: "Modular Sectional Sofa",
+                    category: "sofas",
+                    price: 22999,
+                    originalPrice: 28999,
+                    images: [
+                        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c29mYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    rating: 5,
+                    ratingCount: 189,
+                    description: "Flexible modular sectional sofa that can be arranged in multiple configurations to fit any living space. Features premium fabric upholstery, reversible chaise, and spacious seating for the whole family.",
+                    features: [
+                        "Modular design (adjustable layout)",
+                        "Premium stain-resistant fabric",
+                        "Reversible chaise section",
+                        "Includes 4 decorative pillows",
+                        "Durable hardwood frame",
+                        "Machine washable cushion covers"
+                    ],
+                    dimensions: "120'' W x 40'' D x 34'' H",
+                    material: "Premium Performance Fabric",
+                    color: "Navy Blue",
+                    stock: 4,
+                    badge: "sale",
+                    deliveryTime: "7-14 business days"
+                },
+                {
+                    id: 8,
+                    name: "Glass Coffee Table",
+                    category: "tables",
+                    price: 6499,
+                    originalPrice: 8499,
+                    images: [
+                        "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    rating: 4,
+                    ratingCount: 98,
+                    description: "Contemporary glass coffee table with geometric metal legs. Features tempered safety glass and a sleek powder-coated metal frame. This minimalist piece adds sophistication to modern living rooms.",
+                    features: [
+                        "Tempered safety glass top",
+                        "Powder-coated metal frame",
+                        "Easy to clean surface",
+                        "Modern geometric design",
+                        "30-minute assembly required",
+                        "Weight capacity: 100 lbs"
+                    ],
+                    dimensions: "48'' L x 24'' W x 18'' H",
+                    material: "Tempered Glass & Metal",
+                    color: "Clear Glass with Black Frame",
+                    stock: 22,
+                    badge: null,
+                    deliveryTime: "3-5 business days"
+                }
+            ];
+
+            /* 🔹 STATE MANAGEMENT */
+            let currentFilter = 'all';
+            let currentSort = 'default';
+            let maxPrice = 24999;
+            let likedProducts = new Set();
+            let cartCount = 0;
+            let currentModalProduct = null;
+            let currentImageIndex = 0;
+
+            /* 🔹 DOM ELEMENTS */
+            const productsGrid = document.getElementById('productsGrid');
+            const productCount = document.getElementById('productCount');
+            const priceSlider = document.getElementById('priceSlider');
+            const minPrice = document.getElementById('minPrice');
+            const maxPriceEl = document.getElementById('maxPrice');
+
+            /* 🔹 INITIALIZE */
+            function init() {
+                renderProducts(productsData);
+                setupEventListeners();
+                updateProductCount(productsData.length);
+            }
+
+            /* 🔹 RENDER PRODUCTS */
+            function renderProducts(products) {
+                productsGrid.innerHTML = '';
+
+                if (products.length === 0) {
+                    productsGrid.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-search"></i>
+                            <h3>No Products Found</h3>
+                            <p>We couldn't find any furniture matching your criteria. Try adjusting your filters or browse all categories.</p>
+                            <button class="empty-state-btn" onclick="clearFilters()">
+                                <i class="fas fa-redo"></i> Reset Filters
+                            </button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                products.forEach(product => {
+                    const productElement = createProductElement(product);
+                    productsGrid.appendChild(productElement);
+                });
+            }
+
+            /* 🔹 CREATE PRODUCT ELEMENT */
+            function createProductElement(product) {
+                const element = document.createElement('div');
+                element.className = 'product';
+                element.setAttribute('data-category', product.category);
+                element.setAttribute('data-price', product.price);
+
+                const badge = product.badge ? `<div class="product-badge badge-${product.badge}">${product.badge.toUpperCase()}</div>` : '';
+
+                element.innerHTML = `
+                    ${badge}
+                    <div class="product-img-container" data-product-id="${product.id}">
+                        <img src="${product.images[0]}" alt="${product.name}">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" data-product-id="${product.id}">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">${product.category.toUpperCase()}</div>
+                        <h3 class="product-title" data-product-id="${product.id}">${product.name}</h3>
+                        <p class="product-description">${product.description.substring(0, 100)}...</p>
+                        <div class="product-rating">
+                            <div class="product-stars">${getStarRating(product.rating)}</div>
+                            <span class="rating-count">(${product.ratingCount})</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₹${product.price.toLocaleString()}</div>
+                            <div class="product-actions">
+                                <button class="action-btn ${likedProducts.has(product.id) ? 'active' : ''}" 
+                                        onclick="toggleLike(${product.id}, this)">
+                                    <i class="${likedProducts.has(product.id) ? 'fas' : 'far'} fa-heart"></i>
+                                </button>
+                                <button class="action-btn" onclick="addToCart(${product.id})">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                return element;
+            }
+
+            /* 🔹 GET STAR RATING */
+            function getStarRating(rating) {
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    stars += i <= rating ? '★' : '☆';
+                }
+                return stars;
+            }
+
+            /* 🔹 FILTER PRODUCTS */
+            function filterProducts() {
+                let filtered = productsData.filter(product => {
+                    // Category filter
+                    if (currentFilter !== 'all' && product.category !== currentFilter) {
+                        return false;
+                    }
+
+                    // Price filter
+                    if (product.price > maxPrice) {
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                // Sort products
+                filtered = sortProductList(filtered);
+
+                renderProducts(filtered);
+                updateProductCount(filtered.length);
+            }
+
+            /* 🔹 SORT PRODUCTS */
+            function sortProductList(products) {
+                switch (currentSort) {
+                    case 'price-low':
+                        return [...products].sort((a, b) => a.price - b.price);
+                    case 'price-high':
+                        return [...products].sort((a, b) => b.price - a.price);
+                    case 'rating':
+                        return [...products].sort((a, b) => b.rating - a.rating);
+                    case 'popular':
+                        return [...products].sort((a, b) => b.ratingCount - a.ratingCount);
+                    default:
+                        return products;
+                }
+            }
+
+            /* 🔹 SORT PRODUCTS (UI) */
+            function sortProducts() {
+                const sortSelect = document.getElementById('sortSelect');
+                currentSort = sortSelect.value;
+                filterProducts();
+            }
+
+            /* 🔹 UPDATE PRODUCT COUNT */
+            function updateProductCount(count) {
+                productCount.textContent = `${count} Product${count !== 1 ? 's' : ''}`;
+            }
+
+            /* 🔹 SETUP EVENT LISTENERS */
+            function setupEventListeners() {
+                // Filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilter = this.dataset.filter;
+                        filterProducts();
+                    });
+                });
+
+                // Price slider
+                priceSlider.addEventListener('input', function () {
+                    maxPrice = parseInt(this.value);
+                    maxPriceEl.textContent = `₹${maxPrice.toLocaleString()}`;
+                    filterProducts();
+                });
+
+                // Quick view buttons (delegated)
+                productsGrid.addEventListener('click', function (e) {
+                    const quickViewBtn = e.target.closest('.quick-view-btn');
+                    const productTitle = e.target.closest('.product-title');
+
+                    if (quickViewBtn || productTitle) {
+                        const productId = parseInt((quickViewBtn || productTitle).getAttribute('data-product-id'));
+                        const product = productsData.find(p => p.id === productId);
+                        if (product) openProductModal(product);
+                    }
+                });
+            }
+
+            /* 🔹 PRODUCT MODAL */
+            const modalOverlay = document.getElementById('productModalOverlay');
+            const modalClose = document.getElementById('modalClose');
+            const modalMainImage = document.getElementById('modalMainImage');
+            const thumbnailContainer = document.getElementById('thumbnailContainer');
+
+            function openProductModal(product) {
+                currentModalProduct = product;
+                currentImageIndex = 0;
+
+                updateModalContent(product);
+
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function updateModalContent(product) {
+                // Set main image
+                modalMainImage.src = product.images[currentImageIndex];
+                modalMainImage.alt = product.name;
+
+                // Clear and create thumbnails
+                thumbnailContainer.innerHTML = '';
+                product.images.forEach((image, index) => {
+                    const thumbnail = document.createElement('img');
+                    thumbnail.src = image;
+                    thumbnail.alt = `${product.name} - View ${index + 1}`;
+                    thumbnail.className = `thumbnail ${index === currentImageIndex ? 'active' : ''}`;
+
+                    thumbnail.addEventListener('click', () => {
+                        currentImageIndex = index;
+                        updateModalContent(product);
+                    });
+
+                    thumbnailContainer.appendChild(thumbnail);
+                });
+
+                // Set other product details
+                document.getElementById('modalCategory').textContent = product.category.toUpperCase();
+                document.getElementById('modalTitle').textContent = product.name;
+                document.getElementById('modalStars').textContent = getStarRating(product.rating);
+                document.getElementById('modalRatingCount').textContent = `(${product.ratingCount} reviews)`;
+                document.getElementById('modalPrice').textContent = `₹${product.price.toLocaleString()}`;
+                document.getElementById('modalDescription').textContent = product.description;
+
+                // Clear and add features
+                const featuresList = document.getElementById('modalFeatures');
+                featuresList.innerHTML = '';
+
+                product.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
+                    featuresList.appendChild(li);
+                });
+
+                // Add additional info
+                if (product.dimensions) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-ruler-combined"></i> Dimensions: ${product.dimensions}`;
+                    featuresList.appendChild(li);
+                }
+
+                if (product.material) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-cube"></i> Material: ${product.material}`;
+                    featuresList.appendChild(li);
+                }
+
+                if (product.color) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-palette"></i> Color: ${product.color}`;
+                    featuresList.appendChild(li);
+                }
+
+                if (product.stock) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-boxes"></i> In Stock: ${product.stock} units`;
+                    featuresList.appendChild(li);
+                }
+
+                if (product.deliveryTime) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-shipping-fast"></i> Delivery: ${product.deliveryTime}`;
+                    featuresList.appendChild(li);
+                }
+            }
+
+            function previousImage() {
+                if (currentModalProduct) {
+                    currentImageIndex = (currentImageIndex - 1 + currentModalProduct.images.length) % currentModalProduct.images.length;
+                    updateModalContent(currentModalProduct);
+                }
+            }
+
+            function nextImage() {
+                if (currentModalProduct) {
+                    currentImageIndex = (currentImageIndex + 1) % currentModalProduct.images.length;
+                    updateModalContent(currentModalProduct);
+                }
+            }
+
+            function closeProductModal() {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                currentModalProduct = null;
+            }
+
+            /* 🔹 MODAL EVENT LISTENERS */
+            modalClose.addEventListener('click', closeProductModal);
+            modalOverlay.addEventListener('click', function (e) {
+                if (e.target === modalOverlay) {
+                    closeProductModal();
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                    closeProductModal();
+                }
+            });
+
+            // Modal button actions
+            document.getElementById('addToCartBtn').addEventListener('click', function () {
+                if (currentModalProduct) {
+                    addToCart(currentModalProduct.id);
+                    closeProductModal();
+                }
+            });
+
+            document.getElementById('buyNowBtn').addEventListener('click', function () {
+                if (currentModalProduct) {
+                    alert(`Proceeding to checkout for "${currentModalProduct.name}"`);
+                    closeProductModal();
+                }
+            });
+
+            document.getElementById('addToWishlistBtn').addEventListener('click', function () {
+                const heartIcon = this.querySelector('i');
+                if (currentModalProduct) {
+                    toggleLike(currentModalProduct.id, heartIcon);
+                    if (likedProducts.has(currentModalProduct.id)) {
+                        this.innerHTML = '<i class="fas fa-heart"></i> Remove from Wishlist';
+                    } else {
+                        this.innerHTML = '<i class="far fa-heart"></i> Add to Wishlist';
+                    }
+                }
+            });
+
+            /* 🔹 INTERACTIVE FUNCTIONS */
+            function toggleLike(productId, element) {
+                if (likedProducts.has(productId)) {
+                    likedProducts.delete(productId);
+                    if (element.classList) element.classList.remove('active');
+                    if (element.querySelector) {
+                        const icon = element.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fas');
+                            icon.classList.add('far');
+                        }
+                    }
+                    showNotification('Removed from favorites');
+                } else {
+                    likedProducts.add(productId);
+                    if (element.classList) element.classList.add('active');
+                    if (element.querySelector) {
+                        const icon = element.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('far');
+                            icon.classList.add('fas');
+                        }
+                    }
+                    showNotification('Added to favorites');
+                }
+            }
+
+            function addToCart(productId) {
+                const product = productsData.find(p => p.id === productId);
+                cartCount++;
+                updateCartCount();
+                showNotification(`"${product.name}" added to cart!`);
+
+                // Animation
+                const cartIcon = document.querySelector('.cart-icon');
+                if (cartIcon) {
+                    cartIcon.style.transform = 'scale(1.3)';
+                    setTimeout(() => {
+                        cartIcon.style.transform = 'scale(1)';
+                    }, 300);
+                }
+            }
+
+            function updateCartCount() {
+                const cartCountEl = document.querySelector('.cart-count');
+                if (cartCountEl) {
+                    cartCountEl.textContent = cartCount;
+                }
+            }
+
+            function clearFilters() {
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.filter === 'all') {
+                        btn.classList.add('active');
+                    }
+                });
+
+                currentFilter = 'all';
+                maxPrice = 24999;
+                priceSlider.value = maxPrice;
+                maxPriceEl.textContent = `₹${maxPrice.toLocaleString()}`;
+
+                const sortSelect = document.getElementById('sortSelect');
+                sortSelect.value = 'default';
+                currentSort = 'default';
+
+                filterProducts();
+                showNotification('Filters cleared');
+            }
+
+            /* 🔹 NOTIFICATION SYSTEM */
+            function showNotification(message) {
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span>${message}</span>
+                `;
+
+                // Style notification
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    background: var(--accent-color);
+                    color: white;
+                    padding: 20px 25px;
+                    border-radius: var(--border-radius-sm);
+                    box-shadow: var(--box-shadow-lg);
+                    z-index: 1000;
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    font-weight: 500;
+                    transform: translateY(100px);
+                    opacity: 0;
+                    transition: transform 0.4s ease, opacity 0.4s ease;
+                `;
+
+                document.body.appendChild(notification);
+
+                // Animate in
+                setTimeout(() => {
+                    notification.style.transform = 'translateY(0)';
+                    notification.style.opacity = '1';
+                }, 10);
+
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.style.transform = 'translateY(100px)';
+                    notification.style.opacity = '0';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 400);
+                }, 3000);
+            }
+
+            /* 🔹 NEWSLETTER SUBSCRIPTION */
+            function subscribeNewsletter() {
+                const emailInput = document.getElementById('newsletterEmail');
+                const email = emailInput.value.trim();
+
+                if (!email) {
+                    showNotification('Please enter your email address');
+                    emailInput.focus();
+                    return;
+                }
+
+                if (!validateEmail(email)) {
+                    showNotification('Please enter a valid email address');
+                    emailInput.focus();
+                    return;
+                }
+
+                showNotification(`Thank you for subscribing with ${email}!`);
+                emailInput.value = '';
+            }
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            /* 🔹 INITIALIZE */
+            init();
+        });
+
+        /* 🔹 BANNER BUTTON FUNCTIONS */
+        function scrollToProductsSection() {
+            const productsSection = document.querySelector('.products-container');
+            if (productsSection) {
+                productsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                // Fallback to anchor if section doesn't exist
+                window.location.hash = '#products';
+            }
+        }
+
+        function scrollToFilterSection() {
+            const filterSection = document.querySelector('.filters-container');
+            if (filterSection) {
+                filterSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                // Fallback to anchor if section doesn't exist
+                window.location.hash = '#filters';
+            }
+        }
+
+        // Alternative: If you prefer using IDs in the HTML
+        function scrollToProducts() {
+            const element = document.getElementById('products');
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        function scrollToFilters() {
+            const element = document.getElementById('filters');
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

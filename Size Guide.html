@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size Guide | FurniHome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3D5A5E;
+            --primary-light: #5a7a7e;
+            --secondary: #f39c12;
+            --secondary-light: #f7b731;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --gray-light: #ecf0f1;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f4f6f8 0%, #e8edf1 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(243, 156, 18, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        /* SECTION */
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2 i {
+            color: var(--secondary);
+        }
+
+        .section p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* MEASUREMENT GUIDE */
+        .measurement-guide {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .measure-step {
+            flex: 1;
+            min-width: 250px;
+            background: var(--light);
+            padding: 30px;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--secondary);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* TABLE */
+        .table-section {
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin-top: 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 18px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:nth-child(even) {
+            background: var(--light);
+        }
+
+        tr:hover {
+            background: rgba(243, 156, 18, 0.05);
+        }
+
+        td:first-child {
+            font-weight: 600;
+            color: var(--primary);
+            text-align: left;
+        }
+
+        .dimension {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        /* TIPS */
+        .tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tip {
+            background: var(--light);
+            padding: 35px 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border-top: 5px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+            top: 0;
+            left: 0;
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .tip:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(243, 156, 18, 0.15);
+        }
+
+        .tip:hover::before {
+            transform: translateX(0);
+        }
+
+        .tip-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .tip:hover .tip-icon {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .tip h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .tip p {
+            color: var(--gray);
+            text-align: center;
+        }
+
+        /* ROOM PLANNER */
+        .room-planner {
+            background: linear-gradient(to right, #f9f6f0, #f5f1e8);
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+        }
+
+        .planner-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .planner-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .planner-text h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 26px;
+        }
+
+        .planner-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .planner-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray);
+        }
+
+        .planner-features li i {
+            color: var(--secondary);
+        }
+
+        .planner-visual {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .room-outline {
+            width: 200px;
+            height: 150px;
+            border: 3px dashed var(--primary);
+            border-radius: 10px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .furniture-piece {
+            position: absolute;
+            background: var(--secondary);
+            border-radius: 5px;
+            opacity: 0.7;
+        }
+
+        .sofa {
+            width: 120px;
+            height: 40px;
+            bottom: 20px;
+            left: 40px;
+        }
+
+        .table {
+            width: 60px;
+            height: 40px;
+            background: var(--primary);
+            top: 40px;
+            left: 70px;
+        }
+
+        /* CONVERSION TOOL */
+        .conversion-tool {
+            background: var(--light);
+            padding: 30px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .conversion-tool h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .converter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-group input {
+            padding: 12px 15px;
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            width: 120px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .input-group span {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 60px;
+        }
+
+        .conversion-btn {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .conversion-btn:hover {
+            background: var(--secondary-light);
+            transform: translateY(-3px);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            min-height: 30px;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 60px;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .planner-content {
+                flex-direction: column;
+            }
+
+            .tips {
+                grid-template-columns: 1fr;
+            }
+
+            .converter {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section, .tip, .measure-step {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .tip:nth-child(2) { animation-delay: 0.1s; }
+        .tip:nth-child(3) { animation-delay: 0.2s; }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-couch"></i>
+                FurniHome
+            </a>
+            <div class="nav-links">
+                <a href="#"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Shop</a>
+                <a href="#" class="active"><i class="fas fa-ruler-combined"></i> Size Guide</a>
+                <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Furniture Size Guide</h1>
+            <p>Find the perfect fit for your space with our comprehensive measurement tools and expert tips.</p>
+            <div class="hero-actions">
+                <a href="#measure" class="btn btn-primary">
+                    <i class="fas fa-ruler"></i> Start Measuring
+                </a>
+                <a href="#table" class="btn btn-secondary">
+                    <i class="fas fa-table"></i> View Size Chart
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- MEASUREMENT GUIDE -->
+        <div id="measure" class="section">
+            <h2><i class="fas fa-ruler-horizontal"></i> How to Measure Your Space</h2>
+            <p>
+                Accurate measurements are crucial for selecting furniture that fits perfectly in your room.
+                Follow this step-by-step guide to ensure you have all the dimensions you need.
+            </p>
+            
+            <div class="measurement-guide">
+                <div class="measure-step">
+                    <div class="step-number">1</div>
+                    <h3>Measure Room Dimensions</h3>
+                    <p>Measure length, width, and height of the room. Note the positions of doors, windows, and electrical outlets.</p>
+                </div>
+                
+                <div class="measure-step">
+                    <div class="step-number">2</div>
+                    <h3>Consider Clearance Space</h3>
+                    <p>Leave at least 60–75 cm for walking areas and 90–100 cm for door openings and drawers.</p>
+                </div>
+                
+                <div class="measure-step">
+                    <div class="step-number">3</div>
+                    <h3>Visualize Placement</h3>
+                    <p>Use masking tape on the floor or a room planning app to visualize furniture placement before purchasing.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIZE CHART -->
+        <div id="table" class="section table-section">
+            <h2><i class="fas fa-table"></i> Furniture Size Chart (in centimeters)</h2>
+            <p>Reference dimensions for our most popular furniture pieces. All measurements are in centimeters (cm).</p>
+            
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Width</th>
+                            <th>Depth</th>
+                            <th>Height</th>
+                            <th>Recommended Room Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sofa (3 Seater)</td>
+                            <td><span class="dimension">210</span> cm</td>
+                            <td><span class="dimension">85</span> cm</td>
+                            <td><span class="dimension">80</span> cm</td>
+                            <td>Living room: 4×5 meters</td>
+                        </tr>
+                        <tr>
+                            <td>Dining Table (6 Seater)</td>
+                            <td><span class="dimension">180</span> cm</td>
+                            <td><span class="dimension">90</span> cm</td>
+                            <td><span class="dimension">75</span> cm</td>
+                            <td>Dining area: 3.5×4 meters</td>
+                        </tr>
+                        <tr>
+                            <td>Queen Bed with Side Tables</td>
+                            <td><span class="dimension">160</span> cm</td>
+                            <td><span class="dimension">200</span> cm</td>
+                            <td><span class="dimension">90</span> cm</td>
+                            <td>Bedroom: 4×4.5 meters</td>
+                        </tr>
+                        <tr>
+                            <td>Wardrobe (3 Door)</td>
+                            <td><span class="dimension">120</span> cm</td>
+                            <td><span class="dimension">55</span> cm</td>
+                            <td><span class="dimension">200</span> cm</td>
+                            <td>Bedroom: 3×3.5 meters</td>
+                        </tr>
+                        <tr>
+                            <td>Bookshelf (5 Shelf)</td>
+                            <td><span class="dimension">100</span> cm</td>
+                            <td><span class="dimension">30</span> cm</td>
+                            <td><span class="dimension">180</span> cm</td>
+                            <td>Study/Living: 2.5×3 meters</td>
+                        </tr>
+                        <tr>
+                            <td>Coffee Table</td>
+                            <td><span class="dimension">120</span> cm</td>
+                            <td><span class="dimension">60</span> cm</td>
+                            <td><span class="dimension">45</span> cm</td>
+                            <td>Living room: 3.5×4 meters</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TIPS -->
+        <div class="section">
+            <h2><i class="fas fa-lightbulb"></i> Expert Size Tips</h2>
+            <p>Professional advice to help you make the best furniture decisions for your space.</p>
+            
+            <div class="tips">
+                <div class="tip">
+                    <div class="tip-icon">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3>Measure Twice, Buy Once</h3>
+                    <p>Always double-check measurements of doorways, hallways, and staircases to ensure furniture can be delivered.</p>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3>Clearance Space</h3>
+                    <p>Leave adequate space for doors to open fully, drawers to extend, and people to move comfortably around furniture.</p>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-icon">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <h3>Visualize with Tape</h3>
+                    <p>Use masking tape on the floor to outline furniture dimensions and experiment with different layouts.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROOM PLANNER -->
+        <div class="section">
+            <h2><i class="fas fa-layer-group"></i> Room Planning Tool</h2>
+            <p>Visualize how furniture fits in your space with our simple room planning guide.</p>
+            
+            <div class="room-planner">
+                <div class="planner-content">
+                    <div class="planner-text">
+                        <h3>Plan Your Layout</h3>
+                        <p>Before purchasing furniture, consider how pieces will work together in your space. The visualizer below shows a basic living room layout.</p>
+                        
+                        <ul class="planner-features">
+                            <li><i class="fas fa-check"></i> Maintain at least 60cm walking paths</li>
+                            <li><i class="fas fa-check"></i> Allow 45cm between sofa and coffee table</li>
+                            <li><i class="fas fa-check"></i> Consider traffic flow patterns</li>
+                            <li><i class="fas fa-check"></i> Account for natural light sources</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="planner-visual">
+                        <h4>Living Room Layout Example</h4>
+                        <div class="room-outline">
+                            <div class="furniture-piece sofa"></div>
+                            <div class="furniture-piece table"></div>
+                        </div>
+                        <p><small>Use this as a reference for spacing and proportions</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONVERSION TOOL -->
+        <div class="section">
+            <h2><i class="fas fa-exchange-alt"></i> Measurement Converter</h2>
+            <p>Convert between centimeters, inches, and feet to match your preferred measurement system.</p>
+            
+            <div class="conversion-tool">
+                <h3>Centimeters to Inches/Feet</h3>
+                <div class="converter">
+                    <div class="input-group">
+                        <input type="number" id="cmInput" value="100" min="1" max="1000">
+                        <span>cm</span>
+                    </div>
+                    
+                    <button class="conversion-btn" id="convertBtn">
+                        <i class="fas fa-sync-alt"></i> Convert
+                    </button>
+                    
+                    <div class="input-group">
+                        <input type="text" id="inchOutput" readonly>
+                        <span>inches</span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="text" id="feetOutput" readonly>
+                        <span>feet</span>
+                    </div>
+                </div>
+                
+                <div class="result" id="conversionResult">
+                    <!-- Result will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Need Personalized Size Advice?</h2>
+            <p>Our furniture experts can help you choose the perfect sizes for your specific space and needs.</p>
+            <div class="hero-actions">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-headset"></i> Consult an Expert
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-video"></i> Schedule Virtual Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>FurniHome</h3>
+                <p>Helping you create beautiful, functional spaces with perfectly sized furniture since 2010.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Pinterest">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Size Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Room Planning Guide</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Measurement Tips</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Furniture Dimensions</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Space Calculator</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Delivery Requirements</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Showroom Locations</a></li>
+                    <li><a href="tel:+18005551234"><i class="fas fa-phone"></i> 1-800-555-1234</a></li>
+                    <li><a href="mailto:sizing@furnihome.com"><i class="fas fa-envelope"></i> sizing@furnihome.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Mon-Sat: 9am-8pm EST</a></li>
+                    <li><a href="#"><i class="fas fa-calendar"></i> Book a Free Consultation</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023 FurniHome. All rights reserved. | <a href="#" style="color: #fff; text-decoration: underline;">Privacy Policy</a> | <a href="#" style="color: #fff; text-decoration: underline;">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 13px;"><i class="fas fa-ruler-combined"></i> All dimensions are approximate. Actual product sizes may vary slightly.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Measurement Converter
+        document.addEventListener('DOMContentLoaded', function() {
+            const cmInput = document.getElementById('cmInput');
+            const inchOutput = document.getElementById('inchOutput');
+            const feetOutput = document.getElementById('feetOutput');
+            const convertBtn = document.getElementById('convertBtn');
+            const conversionResult = document.getElementById('conversionResult');
+            
+            function convertMeasurements() {
+                const cm = parseFloat(cmInput.value);
+                
+                if (isNaN(cm) || cm <= 0) {
+                    alert('Please enter a valid number greater than 0');
+                    return;
+                }
+                
+                // Conversion factors
+                const inches = cm / 2.54;
+                const feet = inches / 12;
+                
+                // Update outputs
+                inchOutput.value = inches.toFixed(2);
+                feetOutput.value = feet.toFixed(2);
+                
+                // Update result text
+                conversionResult.innerHTML = `
+                    ${cm} cm = ${inches.toFixed(2)} inches = ${Math.floor(feet)} feet ${(inches % 12).toFixed(2)} inches
+                `;
+            }
+            
+            // Convert on button click
+            convertBtn.addEventListener('click', convertMeasurements);
+            
+            // Convert on Enter key in input
+            cmInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    convertMeasurements();
+                }
+            });
+            
+            // Initial conversion
+            convertMeasurements();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

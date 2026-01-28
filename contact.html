@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us – FurniHome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* GLOBAL */
+        :root {
+            --primary-color: #3D5A5E;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --gray-color: #95a5a6;
+            --border-radius: 16px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* Hide scrollbar */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        /* BANNER SECTION */
+        .contact-banner {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(61, 90, 94, 0.9), rgba(11, 20, 21, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 30px;
+        }
+
+        .banner-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .banner-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .banner-content p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .banner-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .banner-btn {
+            padding: 14px 35px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            border: 2px solid var(--secondary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .banner-btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner-btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .banner-btn.secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* PAGE HEADER - Modified for after banner */
+        .page-header {
+            padding: 60px 30px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+
+        .page-header h1 {
+            margin: 0 0 15px;
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        .page-header p {
+            color: var(--gray-color);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CONTACT CONTAINER */
+        .contact-container {
+            max-width: 1400px;
+            margin: 40px auto 80px;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* CONTACT INFO SECTION */
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* INFO CARD */
+        .info-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .info-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        /* CONTACT ITEMS */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(61, 90, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .contact-details p {
+            color: var(--gray-color);
+            margin-bottom: 5px;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* BUSINESS HOURS */
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hours-list span {
+            color: var(--gray-color);
+        }
+
+        .hours-list .day {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* SOCIAL MEDIA */
+        .social-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 20px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon.facebook:hover {
+            background: #1877F2;
+            color: white;
+            border-color: #1877F2;
+        }
+
+        .social-icon.instagram:hover {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            border-color: transparent;
+        }
+
+        .social-icon.twitter:hover {
+            background: #1DA1F2;
+            color: white;
+            border-color: #1DA1F2;
+        }
+
+        .social-icon.linkedin:hover {
+            background: #0077B5;
+            color: white;
+            border-color: #0077B5;
+        }
+
+        .social-icon.whatsapp:hover {
+            background: #25D366;
+            color: white;
+            border-color: #25D366;
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 16px;
+            transition: var(--transition);
+            background: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(61, 90, 94, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #2c4246;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* MAP SECTION */
+        .map-section {
+            max-width: 1400px;
+            margin: 0 auto 60px;
+            padding: 0 30px;
+        }
+
+        .map-box {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .map-header h2 {
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .map-directions {
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .map-directions:hover {
+            background: #2c4246;
+            transform: translateY(-2px);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* QUICK CONTACT SECTION */
+        .quick-contact {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 30px;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+        }
+
+        .quick-contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .quick-contact-item {
+            text-align: center;
+        }
+
+        .quick-contact-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .quick-contact-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .quick-contact-item p {
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .quick-contact-item a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+
+        .quick-contact-item a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 30px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .quick-contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-banner {
+                height: 350px;
+            }
+
+            .banner-content h1 {
+                font-size: 42px;
+            }
+
+            .banner-content p {
+                font-size: 18px;
+            }
+
+            .banner-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .page-header {
+                padding: 40px 20px 30px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .page-header p {
+                font-size: 16px;
+            }
+
+            .contact-container {
+                padding: 0 20px;
+                margin: 30px auto 50px;
+            }
+
+            .info-card,
+            .contact-form {
+                padding: 30px;
+            }
+
+            .map-section {
+                padding: 0 20px;
+                margin-bottom: 40px;
+            }
+
+            .map-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .quick-contact {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-banner {
+                height: 300px;
+            }
+
+            .banner-content h1 {
+                font-size: 32px;
+            }
+
+            .banner-content p {
+                font-size: 16px;
+            }
+
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .info-card,
+            .contact-form {
+                padding: 20px;
+            }
+
+            .info-card h2,
+            .contact-form h2 {
+                font-size: 24px;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .social-icons {
+                gap: 10px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .quick-contact-item h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="nav"></div>
+
+    <!-- BANNER SECTION -->
+    <section class="contact-banner">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+             alt="Contact Us Banner" class="banner-image">
+        <div class="banner-overlay">
+            <div class="banner-content">
+                <h1>Get In Touch</h1>
+                <p>We're always here to help with your furniture needs. Contact us for inquiries, support, or just to say hello!</p>
+                <div class="banner-btns">
+                    <a href="#contact-form" class="banner-btn">
+                        <i class="fas fa-envelope"></i> Send Message
+                    </a>
+                    <a href="#map" class="banner-btn secondary">
+                        <i class="fas fa-map-marker-alt"></i> Visit Our Store
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Contact Us</h1>
+        <p>We're here to help! Get in touch with us for any inquiries, support, or feedback.</p>
+    </div>
+
+    <!-- QUICK CONTACT SECTION -->
+    <section class="quick-contact">
+        <div class="quick-contact-container">
+            <div class="quick-contact-item">
+                <div class="quick-contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Call Us</h3>
+                <p>Mon-Sat: 9.30AM-6.30PM</p>
+                <a href="tel:+919876543210">+91 98765 43210</a>
+            </div>
+            <div class="quick-contact-item">
+                <div class="quick-contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>Response within 24 hours</p>
+                <a href="mailto:support@furnihome.com">support@furnihome.com</a>
+            </div>
+            <div class="quick-contact-item">
+                <div class="quick-contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Visit Us</h3>
+                <p>24/1 Sakthi Nagar, Emour Road, </p>
+                <a href="#map" class="scroll-to-map">thandhoni, Karur, Tamil Nadu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <div class="map-section" id="map">
+        <div class="map-box">
+            <div class="map-header">
+                <h2>Our Location</h2>
+                <a href="https://www.google.com/maps?q=thndhoni,Karur,Tamil%20Nadu,India" 
+                   target="_blank" 
+                   class="map-directions">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps?q=thandhoni,Karur,Tamil%20Nadu,India&output=embed&zoom=14" 
+                        loading="lazy" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT CONTENT -->
+    <div class="contact-container">
+
+        <!-- LEFT SIDE: CONTACT INFO -->
+        <div class="contact-info-section">
+
+            <!-- CONTACT DETAILS CARD -->
+            <div class="info-card">
+                <h2>Contact Details</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Our Store</h3>
+                        <p>24/1 Sakthi Nagar, Emour Road, Karur</p>
+                        <p>Tamil Nadu, India - 639007</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone Numbers</h3>
+                        <p><a href="tel:+914432567890">+91 44 3256 7890</a></p>
+                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email Address</h3>
+                        <p><a href="mailto:support@furnihome.com">support@furnihome.com</a></p>
+                        <p><a href="mailto:sales@furnihome.com">sales@furnihome.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUSINESS HOURS CARD -->
+            <div class="info-card">
+                <h2>Business Hours</h2>
+                <ul class="hours-list">
+                    <li><span class="day">Monday - Friday</span> <span>9:30 AM - 6:30 PM</span></li>
+                    <li><span class="day">Saturday</span> <span>9:30 AM - 6:30 PM</span></li>
+                    <li><span class="day">Sunday</span> <span>Office Leave</span></li>
+                    <li><span class="day">Public Holidays</span> <span>Compal sari leave</span></li>
+                </ul>
+            </div>
+
+            <!-- SOCIAL MEDIA CARD -->
+            <div class="info-card">
+                <h2>Connect With Us</h2>
+                <div class="social-section">
+                    <p style="color: var(--gray-color); margin-bottom: 25px;">Follow us on social media for updates, offers, and inspiration</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon twitter" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon linkedin" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon whatsapp" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE: CONTACT FORM -->
+        <div class="contact-form" id="contact-form">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm" onsubmit="submitForm(event)">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="product">Product Information</option>
+                        <option value="order">Order Status</option>
+                        <option value="support">Customer Support</option>
+                        <option value="feedback">Feedback/Suggestion</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" 
+                              placeholder="Please write your message here..." 
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Furni<span>Home</span></div>
+            <p class="footer-text">Bringing elegance and comfort to your home with our premium furniture collection since 2010.</p>
+            
+            <div class="copyright">
+                © 2023 FurniHome. All rights reserved. | Privacy Policy | Terms of Service
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ===============================
+           PAGE IDENTIFIER
+        ================================ */
+        window.ACTIVE_PAGE = "contact";
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ===============================
+               LOAD NAVBAR + ACTIVE LINK
+            ================================ */
+            fetch("nav.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("nav").innerHTML = data;
+
+                    document.querySelectorAll(".nav-center a").forEach(link => {
+                        link.classList.toggle(
+                            "active",
+                            link.dataset.page === window.ACTIVE_PAGE
+                        );
+                    });
+                });
+
+            /* ===============================
+               PHONE NUMBER FORMATTING
+            ================================ */
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 10) {
+                        value = value.substring(0, 10);
+                    }
+                    
+                    if (value.length > 0) {
+                        value = '+91 ' + value;
+                        if (value.length > 7) {
+                            value = value.substring(0, 7) + ' ' + value.substring(7);
+                        }
+                        if (value.length > 12) {
+                            value = value.substring(0, 12) + ' ' + value.substring(12);
+                        }
+                    }
+                    
+                    e.target.value = value;
+                });
+            }
+
+            /* ===============================
+               SOCIAL MEDIA CLICK HANDLERS
+            ================================ */
+            document.querySelectorAll('.social-icon').forEach(icon => {
+                icon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const platform = this.classList[1];
+                    const platformNames = {
+                        'facebook': 'Facebook',
+                        'instagram': 'Instagram',
+                        'twitter': 'Twitter',
+                        'linkedin': 'LinkedIn',
+                        'whatsapp': 'WhatsApp'
+                    };
+                    
+                    alert(`You clicked on our ${platformNames[platform]} link! In a real website, this would take you to our ${platformNames[platform]} page.`);
+                });
+            });
+
+            /* ===============================
+               BANNER BUTTON SCROLL FUNCTIONALITY
+            ================================ */
+            document.querySelectorAll('.banner-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            /* ===============================
+               SCROLL TO MAP FUNCTION
+            ================================ */
+            document.querySelectorAll('.scroll-to-map').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('map').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            /* ===============================
+               GET DIRECTIONS BUTTON
+            ================================ */
+            document.querySelector('.map-directions').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open(this.href, '_blank');
+            });
+
+        });
+
+        /* ===============================
+           FORM SUBMISSION
+        ================================ */
+        function submitForm(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            if (!validateEmail(data.email)) {
+                alert('Please enter a valid email address.');
+                document.getElementById('email').focus();
+                return;
+            }
+            
+            // Show success message
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // In a real application, you would send this data to a server
+                console.log('Form data:', data);
+                
+                // Show success message
+                alert(`Thank you ${data.firstName}! Your message has been sent successfully. We'll get back to you within 24 hours.`);
+                
+                // Reset form
+                form.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 1500);
+        }
+
+        /* ===============================
+           EMAIL VALIDATION
+        ================================ */
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

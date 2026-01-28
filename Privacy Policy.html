@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | FurniHome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2E5B5F;
+            --primary-light: #4A7C80;
+            --primary-dark: #1A3C3F;
+            --secondary: #10B981;
+            --secondary-light: #34D399;
+            --accent: #F59E0B;
+            --accent-light: #FBBF24;
+            --light: #F8FAFC;
+            --dark: #1E293B;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --radius: 20px;
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 40px -10px rgb(0 0 0 / 0.15);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+            color: var(--gray-700);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, rgba(46, 91, 95, 0.9) 0%, rgba(46, 91, 95, 0.7) 100%),
+                        url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"%3E%3Cdefs%3E%3ClinearGradient id="a" x1="0%25" x2="100%25" y1="0%25" y2="100%25"%3E%3Cstop offset="0%25" stop-color="%23f8fafc"/%3E%3Cstop offset="100%25" stop-color="%23e2e8f0"/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="1200" height="800" fill="url(%23a)"/%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="300" cy="200" r="40"/%3E%3Ccircle cx="900" cy="600" r="30"/%3E%3C/g%3E%3C/svg%3E');
+            color: white;
+            text-align: center;
+            padding: 160px 20px 120px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin: 0 0 1.5rem;
+            position: relative;
+            z-index: 2;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin: 0 0 2.5rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .last-updated {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* LAYOUT */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-100);
+        }
+
+        .toc h3 {
+            margin: 0 0 24px;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toc h3 i {
+            color: var(--primary);
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-item {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .toc-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 15px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toc-link i {
+            width: 20px;
+            text-align: center;
+            color: var(--gray-400);
+            transition: all 0.3s ease;
+        }
+
+        .toc-link:hover,
+        .toc-link.active {
+            background: linear-gradient(135deg, var(--light) 0%, var(--gray-100) 100%);
+            color: var(--primary);
+            font-weight: 500;
+            transform: translateX(5px);
+        }
+
+        .toc-link:hover i,
+        .toc-link.active i {
+            color: var(--secondary);
+        }
+
+        /* CONTENT */
+        .content {
+            background: white;
+            padding: 60px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+        }
+
+        .intro {
+            margin-bottom: 48px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--gray-100);
+            position: relative;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .intro strong {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            scroll-margin-top: 140px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+            opacity: 0.3;
+        }
+
+        .section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 28px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section h2 i {
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+
+        .section p {
+            color: var(--gray-600);
+            font-size: 17px;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .section ul, .section ol {
+            padding-left: 28px;
+            margin-bottom: 24px;
+        }
+
+        .section li {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .section li strong {
+            color: var(--primary);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fef7c600, #fef3c700);
+            padding: 28px 32px;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent);
+            margin: 32px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(251, 191, 36, 0.05));
+            z-index: -1;
+        }
+
+        /* INTERACTIVE FEATURES */
+        .expandable-section {
+            margin: 24px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .expandable-header {
+            background: var(--gray-100);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .expandable-header:hover {
+            background: var(--gray-200);
+        }
+
+        .expandable-content {
+            background: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .expandable-content.active {
+            padding: 24px 20px;
+            max-height: 1000px;
+        }
+
+        .data-visual {
+            background: var(--light);
+            padding: 32px;
+            border-radius: 16px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .data-bars {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .data-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bar {
+            width: 80px;
+            height: 200px;
+            background: var(--gray-200);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fill {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(0deg, var(--secondary), var(--secondary-light));
+            border-radius: 10px;
+            transition: height 1.5s ease;
+        }
+
+        .bar-label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* GDPR COMPLIANCE */
+        .compliance-badges {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .badge i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 40px;
+            margin-top: 80px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin: 0 0 1.5rem;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin: 0 0 3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-400);
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 20px;
+            }
+            
+            .toc {
+                position: static;
+            }
+
+            .content {
+                padding: 40px 30px;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 20px 80px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section {
+                padding-left: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .data-bars {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .bar {
+                width: 60px;
+                height: 150px;
+            }
+
+            .compliance-badges {
+                flex-direction: column;
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body { background: white; }
+            .header, .hero, .toc, .cta-section, .footer { display: none; }
+            .main-container { grid-template-columns: 1fr; gap: 0; }
+            .content { box-shadow: none; border: none; padding: 0; }
+            .section { break-inside: avoid; }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fillBar {
+            from {
+                height: 0;
+            }
+        }
+
+        .fill {
+            animation: fillBar 1.5s ease-out forwards;
+        }
+
+        /* SCROLL PROGRESS */
+        .scroll-progress {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gray-200);
+            z-index: 999;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-couch"></i>
+                FurniHome
+            </a>
+            <div class="nav-links">
+                <a href="#"><i class="fas fa-home"></i> Home</a>
+                <a href="#" class="active"><i class="fas fa-shield-alt"></i> Privacy</a>
+                <a href="#"><i class="fas fa-file-contract"></i> Terms</a>
+                <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Privacy Policy</h1>
+        <p>Your trust is our priority. We protect your data with industry-leading security and transparency.</p>
+        <div class="last-updated">
+            <i class="fas fa-clock"></i>
+            Last Updated: January 27, 2026
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-container">
+        <!-- TABLE OF CONTENTS -->
+        <nav class="toc" role="navigation" aria-label="Table of contents">
+            <h3><i class="fas fa-list"></i> Quick Navigation</h3>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#info-collect" class="toc-link"><i class="fas fa-database"></i> Information We Collect</a></li>
+                <li class="toc-item"><a href="#usage" class="toc-link"><i class="fas fa-cogs"></i> How We Use Information</a></li>
+                <li class="toc-item"><a href="#cookies" class="toc-link"><i class="fas fa-cookie-bite"></i> Cookies & Tracking</a></li>
+                <li class="toc-item"><a href="#security" class="toc-link"><i class="fas fa-lock"></i> Data Security</a></li>
+                <li class="toc-item"><a href="#third-party" class="toc-link"><i class="fas fa-handshake"></i> Third-Party Services</a></li>
+                <li class="toc-item"><a href="#rights" class="toc-link"><i class="fas fa-user-shield"></i> Your Rights</a></li>
+                <li class="toc-item"><a href="#updates" class="toc-link"><i class="fas fa-sync-alt"></i> Policy Updates</a></li>
+                <li class="toc-item"><a href="#contact" class="toc-link"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main class="content" role="main">
+            <div class="intro">
+                <p>
+                    At <strong>FurniHome</strong>, we are committed to protecting your privacy and ensuring the security of your personal information. 
+                    This Privacy Policy explains how we collect, use, share, and protect your data when you use our website and services.
+                </p>
+                <p>This policy applies to all users in India and complies with the <strong>Digital Personal Data Protection Act, 2023 (DPDP Act)</strong>.</p>
+            </div>
+
+            <!-- INFORMATION WE COLLECT -->
+            <section id="info-collect" class="section">
+                <h2><i class="fas fa-database"></i> 1. Information We Collect</h2>
+                <p>We collect the following types of information to provide our services:</p>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header" onclick="toggleExpandable('personal-info')">
+                        <h3 style="margin: 0; font-size: 1.2rem; color: var(--primary);">Personal Information</h3>
+                        <i class="fas fa-chevron-down" id="personal-info-icon"></i>
+                    </div>
+                    <div class="expandable-content" id="personal-info-content">
+                        <ul>
+                            <li><strong>Name & Contact Details:</strong> Full name, email address, phone number</li>
+                            <li><strong>Address:</strong> Billing and shipping addresses</li>
+                            <li><strong>Payment Information:</strong> Credit/debit card details (processed securely via PCI-compliant gateways)</li>
+                            <li><strong>Account Details:</strong> Username, password (encrypted), preferences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="expandable-section">
+                    <div class="expandable-header" onclick="toggleExpandable('usage-info')">
+                        <h3 style="margin: 0; font-size: 1.2rem; color: var(--primary);">Usage & Technical Data</h3>
+                        <i class="fas fa-chevron-down" id="usage-info-icon"></i>
+                    </div>
+                    <div class="expandable-content" id="usage-info-content">
+                        <ul>
+                            <li><strong>Device Information:</strong> IP address, browser type, operating system</li>
+                            <li><strong>Usage Data:</strong> Pages visited, time spent, click patterns</li>
+                            <li><strong>Location Data:</strong> Approximate location based on IP (for regional offers)</li>
+                            <li><strong>Cookies:</strong> Session data, preferences, analytics cookies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="data-visual">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Our Data Collection Overview</h3>
+                    <div class="data-bars">
+                        <div class="data-bar">
+                            <div class="bar">
+                                <div class="fill" style="height: 85%;"></div>
+                            </div>
+                            <div class="bar-label">Personal Data</div>
+                        </div>
+                        <div class="data-bar">
+                            <div class="bar">
+                                <div class="fill" style="height: 70%;"></div>
+                            </div>
+                            <div class="bar-label">Usage Data</div>
+                        </div>
+                        <div class="data-bar">
+                            <div class="bar">
+                                <div class="fill" style="height: 40%;"></div>
+                            </div>
+                            <div class="bar-label">Payment Data</div>
+                        </div>
+                        <div class="data-bar">
+                            <div class="bar">
+                                <div class="fill" style="height: 60%;"></div>
+                            </div>
+                            <div class="bar-label">Location Data</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOW WE USE INFORMATION -->
+            <section id="usage" class="section">
+                <h2><i class="fas fa-cogs"></i> 2. How We Use Your Information</h2>
+                <p>Your information helps us provide better services:</p>
+                <ul>
+                    <li><strong>Order Processing:</strong> To process and deliver your orders efficiently</li>
+                    <li><strong>Customer Support:</strong> To provide personalized assistance and after-sales service</li>
+                    <li><strong>Improvement:</strong> To enhance our website, products, and user experience</li>
+                    <li><strong>Communication:</strong> To send order confirmations, shipping updates, and promotional offers (opt-out available)</li>
+                    <li><strong>Security:</strong> To prevent fraud and ensure secure transactions</li>
+                    <li><strong>Analytics:</strong> To analyze website performance and user behavior</li>
+                </ul>
+            </section>
+
+            <!-- COOKIES & TRACKING -->
+            <section id="cookies" class="section">
+                <h2><i class="fas fa-cookie-bite"></i> 3. Cookies & Tracking</h2>
+                <div class="highlight">
+                    <p style="margin: 0;">We use essential, performance, and marketing cookies. You can manage cookie preferences through your browser settings or our <a href="#" style="color: var(--secondary); font-weight: 600;">Cookie Settings</a> page.</p>
+                </div>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for site functionality (shopping cart, user login)</li>
+                    <li><strong>Analytics Cookies:</strong> Google Analytics (anonymized data for improvement)</li>
+                    <li><strong>Marketing Cookies:</strong> Facebook Pixel, retargeting ads (with consent)</li>
+                    <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
+                </ul>
+            </section>
+
+            <!-- DATA SECURITY -->
+            <section id="security" class="section">
+                <h2><i class="fas fa-lock"></i> 4. Data Security</h2>
+                <p>We implement multiple layers of security to protect your data:</p>
+                <ul>
+                    <li><strong>Encryption:</strong> 256-bit SSL encryption for all data transmission</li>
+                    <li><strong>PCI Compliance:</strong> Secure payment processing through certified gateways</li>
+                    <li><strong>Regular Audits:</strong> Security audits and penetration testing</li>
+                    <li><strong>Secure Storage:</strong> Data stored in secure AWS India data centers</li>
+                    <li><strong>Access Control:</strong> Employee access limited by role-based permissions</li>
+                </ul>
+                
+                <div class="compliance-badges">
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>ISO 27001</strong>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Certified</div>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <strong>PCI DSS</strong>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Compliant</div>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-gavel"></i>
+                        <div>
+                            <strong>DPDP Act 2023</strong>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Compliant</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- THIRD-PARTY SERVICES -->
+            <section id="third-party" class="section">
+                <h2><i class="fas fa-handshake"></i> 5. Third-Party Services</h2>
+                <p>We share information only when necessary with trusted partners:</p>
+                <ul>
+                    <li><strong>Payment Gateways:</strong> Razorpay, PayU (PCI compliant)</li>
+                    <li><strong>Shipping Partners:</strong> Delhivery, Blue Dart (delivery details only)</li>
+                    <li><strong>Analytics:</strong> Google Analytics (anonymized data)</li>
+                    <li><strong>Marketing:</strong> Mailchimp, Facebook (with consent)</li>
+                    <li><strong>Customer Support:</strong> Zendesk, Freshdesk</li>
+                </ul>
+            </section>
+
+            <!-- YOUR RIGHTS -->
+            <section id="rights" class="section">
+                <h2><i class="fas fa-user-shield"></i> 6. Your Rights (DPDP Act)</h2>
+                <p>As per Indian data protection laws, you have the right to:</p>
+                <ul>
+                    <li><strong>Access:</strong> Request a copy of your personal data</li>
+                    <li><strong>Correction:</strong> Update inaccurate or incomplete information</li>
+                    <li><strong>Deletion:</strong> Request data removal (subject to legal obligations)</li>
+                    <li><strong>Opt-out:</strong> Stop marketing communications anytime</li>
+                    <li><strong>Grievance:</strong> File complaints with our Data Protection Officer</li>
+                    <li><strong>Portability:</strong> Receive your data in a structured format</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p style="margin: 0;">To exercise your rights, email <a href="mailto:dpo@furnihome.com" style="color: var(--secondary); font-weight: 600;">dpo@furnihome.com</a> or use our <a href="#" style="color: var(--secondary); font-weight: 600;">Privacy Dashboard</a>.</p>
+                </div>
+            </section>
+
+            <!-- POLICY UPDATES -->
+            <section id="updates" class="section">
+                <h2><i class="fas fa-sync-alt"></i> 7. Policy Updates</h2>
+                <p>We may update this Privacy Policy periodically. Significant changes will be:</p>
+                <ul>
+                    <li>Posted on this page with new "Last Updated" date</li>
+                    <li>Announced via email (for registered users)</li>
+                    <li>Displayed prominently on our website for 30 days</li>
+                    <li>Continued use constitutes acceptance of changes</li>
+                </ul>
+            </section>
+
+            <!-- CONTACT US -->
+            <section id="contact" class="section">
+                <h2><i class="fas fa-envelope"></i> 8. Contact Us</h2>
+                <div class="highlight">
+                    <p style="margin: 0 0 15px;"><strong>Data Protection Officer:</strong></p>
+                    <p style="margin: 0 0 10px;"><i class="fas fa-envelope"></i> Email: <a href="mailto:dpo@furnihome.com" style="color: var(--secondary); font-weight: 600;">dpo@furnihome.com</a></p>
+                    <p style="margin: 0 0 10px;"><i class="fas fa-phone"></i> Phone: <a href="tel:+919876543210" style="color: var(--secondary); font-weight: 600;">+91 98765 43210</a></p>
+                    <p style="margin: 0;"><i class="fas fa-map-marker-alt"></i> Address: FurniHome HQ, Chennai, Tamil Nadu 600001</p>
+                </div>
+                <p style="margin-top: 20px;">We aim to respond to all privacy inquiries within 48 hours.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Questions About Your Privacy?</h2>
+            <p>We're here to help clarify any concerns about your data and privacy</p>
+            <div class="contact-buttons">
+                <a href="mailto:support@furnihome.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Email Support
+                </a>
+                <a href="tel:+919876543210" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call Us Now
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>FurniHome</h3>
+                <p style="color: var(--gray-400); margin-bottom: 20px;">Creating beautiful, sustainable furniture while protecting your privacy and data.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Privacy Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cookie Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Data Request Form</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Unsubscribe</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Privacy Team</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:privacy@furnihome.com"><i class="fas fa-envelope"></i> privacy@furnihome.com</a></li>
+                    <li><a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 98765 43210</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 9am-6pm IST</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Chennai, India</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Data Protection Officer</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 FurniHome. All rights reserved. | <a href="#" style="color: #fff; text-decoration: underline;">Privacy Policy</a> | <a href="#" style="color: #fff; text-decoration: underline;">Terms of Service</a> | <a href="#" style="color: #fff; text-decoration: underline;">Cookie Policy</a></p>
+            <p style="margin-top: 10px; font-size: 13px;"><i class="fas fa-shield-alt"></i> This website complies with the Digital Personal Data Protection Act, 2023 (DPDP Act)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle expandable sections
+        function toggleExpandable(id) {
+            const content = document.getElementById(`${id}-content`);
+            const icon = document.getElementById(`${id}-icon`);
+            
+            content.classList.toggle('active');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        }
+
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const offset = 100;
+                    const targetPosition = targetSection.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active TOC item
+                    document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Active TOC highlighting on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.section');
+            const scrollPosition = window.scrollY + 150;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Update scroll progress
+            updateScrollProgress();
+        });
+
+        // Scroll progress indicator
+        function updateScrollProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        }
+
+        // Animate data bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate bars
+                    document.querySelectorAll('.fill').forEach(fill => {
+                        const currentHeight = fill.style.height;
+                        fill.style.height = '0%';
+                        setTimeout(() => {
+                            fill.style.height = currentHeight;
+                        }, 300);
+                    });
+                    
+                    // Stop observing after animation
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const dataVisual = document.querySelector('.data-visual');
+        if (dataVisual) {
+            observer.observe(dataVisual);
+        }
+
+        // Print functionality
+        function printPolicy() {
+            window.print();
+        }
+
+        // Add print button event
+        document.addEventListener('DOMContentLoaded', function() {
+            const printBtn = document.querySelector('.btn-secondary:nth-child(3)');
+            if (printBtn) {
+                printBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    printPolicy();
+                });
+            }
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on load
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+
+            // Initialize expandable sections
+            document.querySelectorAll('.expandable-content').forEach(content => {
+                content.style.maxHeight = '0';
+            });
+        });
+    </script>
+</body>
+</html>

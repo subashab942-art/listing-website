@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bedroom Collection | FurniHome - Luxury Bedroom Furniture</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+
+<style>
+:root {
+    --primary-color: #1a1f2c;
+    --secondary-color: #e76f51;
+    --accent-color: #2a9d8f;
+    --light-color: #f8f9fa;
+    --dark-color: #1a1f2c;
+    --gray-color: #8d99ae;
+    --light-gray: #f5f7fb;
+    --border-radius: 16px;
+    --border-radius-sm: 12px;
+    --box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    --box-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+/* ===== NAVIGATION ===== */
+.navbar {
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.nav-logo {
+    font-size: 28px;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.nav-logo span {
+    color: var(--secondary-color);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-menu a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-btn {
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-btn.primary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.nav-btn.primary:hover {
+    background: #d65c3e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 0 0 30px 30px;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+    transform: scale(1.05);
+    transition: transform 8s ease-out;
+}
+
+.hero:hover .hero-bg {
+    transform: scale(1.1);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 31, 44, 0.85) 0%, rgba(26, 31, 44, 0.6) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 40px;
+    background: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3);
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.hero-btn:hover {
+    background: #d65c3e;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(231, 111, 81, 0.4);
+}
+
+.hero-btn.secondary {
+    background: transparent;
+    border: 2px solid white;
+    box-shadow: none;
+}
+
+.hero-btn.secondary:hover {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+    padding: 80px 30px 40px;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, var(--light-gray));
+}
+
+.page-header h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header p {
+    color: var(--gray-color);
+    font-size: 18px;
+    max-width: 700px;
+    margin: 10px auto 0;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* ===== BEDROOM CATEGORIES ===== */
+.categories {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 30px;
+}
+
+.categories h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.category-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    text-decoration: none;
+    display: block;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.category-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.category-content p {
+    color: var(--gray-color);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ===== PRODUCTS GRID ===== */
+.products-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px 80px;
+}
+
+.products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.products-header h2 {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.filter-options {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 180px;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.product-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.product-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.badge-new {
+    background: var(--accent-color);
+    color: white;
+}
+
+.badge-popular {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.badge-sale {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #f9f9f9;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 31, 44, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.product-image:hover .product-overlay {
+    opacity: 1;
+}
+
+.quick-view-btn {
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(20px);
+    opacity: 0;
+    line-height: 1;
+}
+
+.product-image:hover .quick-view-btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.quick-view-btn:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.product-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.product-category {
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.product-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.product-name:hover {
+    color: var(--secondary-color);
+}
+
+.product-description {
+    color: var(--gray-color);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.product-stars {
+    color: #FFD166;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.rating-count {
+    color: var(--gray-color);
+    font-size: 14px;
+    line-height: 1;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.action-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 18px;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.action-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.action-btn.active {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* ===== FEATURED SECTION ===== */
+.featured-section {
+    background: var(--light-gray);
+    padding: 80px 30px;
+    margin: 60px 0;
+    border-radius: 30px;
+}
+
+.featured-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.featured-image {
+    flex: 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-lg);
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition-slow);
+}
+
+.featured-image:hover img {
+    transform: scale(1.05);
+}
+
+.featured-text {
+    flex: 1;
+}
+
+.featured-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.featured-text p {
+    color: var(--gray-color);
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.feature-list li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--dark-color);
+}
+
+.feature-list li i {
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+/* ===== BENEFITS ===== */
+.benefits {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 30px;
+}
+
+.benefits h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(42, 157, 143, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 32px;
+    color: var(--accent-color);
+}
+
+.benefit-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.benefit-card p {
+    color: var(--gray-color);
+    line-height: 1.6;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 31, 44, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-slow);
+    backdrop-filter: blur(10px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-modal {
+    background: white;
+    border-radius: var(--border-radius);
+    max-width: 1200px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .product-modal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(231, 111, 81, 0.3);
+}
+
+.modal-close:hover {
+    background: #d65c3e;
+    transform: rotate(90deg);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+@media (min-width: 992px) {
+    .modal-content {
+        flex-direction: row;
+        gap: 50px;
+    }
+}
+
+.modal-image-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.main-image-container {
+    position: relative;
+    background: #f9f9f9;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.image-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-nav:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.image-nav.prev {
+    left: 20px;
+}
+
+.image-nav.next {
+    right: 20px;
+}
+
+.thumbnail-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+}
+
+.thumbnail {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 3px solid transparent;
+}
+
+.thumbnail:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.thumbnail.active {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(231, 111, 81, 0.2);
+}
+
+.modal-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal-category {
+    color: var(--accent-color);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.modal-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.modal-rating {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.modal-stars {
+    color: #FFD166;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.modal-price {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    line-height: 1;
+}
+
+.modal-description {
+    color: var(--gray-color);
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.modal-features {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: var(--border-radius-sm);
+}
+
+.modal-features h4 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1;
+}
+
+.features-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.features-list li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.features-list li i {
+    color: var(--accent-color);
+    font-size: 16px;
+    line-height: 1;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 30px;
+    border-top: 1px solid #f0f0f0;
+    align-items: center;
+}
+
+.modal-btn {
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    font-size: 16px;
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    line-height: 1;
+    text-align: center;
+}
+
+.modal-btn:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #131722;
+    box-shadow: 0 15px 30px rgba(26, 31, 44, 0.2);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #d65c3e;
+    box-shadow: 0 15px 30px rgba(231, 111, 81, 0.3);
+}
+
+.btn-outline {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #2c3e50 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 30px;
+    margin: 80px 0;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+    opacity: 0.1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 80px 30px 30px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: start;
+}
+
+.footer-logo {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.footer-logo span {
+    color: var(--secondary-color);
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.footer-links h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+    line-height: 1;
+}
+
+.footer-links h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+    line-height: 1.4;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+.newsletter-section {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.newsletter-section h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.newsletter-section p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.newsletter-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 16px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    height: 50px;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--secondary-color);
+}
+
+.newsletter-btn {
+    padding: 16px 35px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 50px;
+    line-height: 1;
+}
+
+.newsletter-btn:hover {
+    background: #d65c3e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3);
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.social-icon:hover {
+    background: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.copyright {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    padding-top: 40px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    line-height: 1.6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+    .hero-content h1 {
+        font-size: 48px;
+    }
+    .page-header h1 {
+        font-size: 42px;
+    }
+    .featured-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .hero {
+        height: 500px;
+    }
+    .hero-content h1 {
+        font-size: 40px;
+    }
+    .modal-content {
+        flex-direction: column;
+    }
+    .nav-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 400px;
+        border-radius: 0 0 20px 20px;
+    }
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    .hero-content p {
+        font-size: 16px;
+    }
+    .hero-btn {
+        padding: 16px 30px;
+    }
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .page-header {
+        padding: 60px 20px 30px;
+    }
+    .page-header h1 {
+        font-size: 36px;
+    }
+    .products-container {
+        padding: 0 20px 60px;
+    }
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .modal-content {
+        padding: 25px;
+    }
+    .modal-title {
+        font-size: 28px;
+    }
+    .modal-price {
+        font-size: 36px;
+    }
+    .modal-actions {
+        flex-direction: column;
+    }
+    .modal-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 28px;
+    }
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        gap: 40px;
+    }
+    .newsletter-form {
+        flex-direction: column;
+    }
+    .newsletter-input,
+    .newsletter-btn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">Furni<span>Home</span></a>
+        <ul class="nav-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Living Room.html">Living Room</a></li>
+            <li><a href="#" class="active">Bedroom</a></li>
+            <li><a href="Dining Room.html">Dining</a></li>
+            <li><a href="Office.html">Office</a></li>
+            <li><a href="Outdoor.html">Outdoor</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="#" class="nav-btn primary">Book Consultation</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+        alt="Luxury Bedroom" class="hero-bg">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Luxury Bedroom Collections</h1>
+            <p>Transform your bedroom into a sanctuary of comfort and style. Discover our curated collection of premium furniture designed for restful nights.</p>
+            <div class="hero-btns">
+                <a href="#products" class="hero-btn" onclick="event.preventDefault(); scrollToProducts()">
+                    <i class="fas fa-shopping-bag"></i> Shop Collection
+                </a>
+                <a href="#categories" class="hero-btn secondary" onclick="event.preventDefault(); scrollToCategories()">
+                    <i class="fas fa-layer-group"></i> Browse Categories
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <h1>Premium Bedroom Furniture</h1>
+    <p>Each piece is meticulously crafted to create a harmonious and relaxing bedroom environment that promotes rest and rejuvenation.</p>
+</div>
+
+<!-- BEDROOM CATEGORIES -->
+<section class="categories" id="categories">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+        <a href="#beds" class="category-card">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beds">
+            <div class="category-content">
+                <h3>Beds</h3>
+                <p>From minimalist platforms to luxurious canopy beds</p>
+            </div>
+        </a>
+        <a href="#wardrobes" class="category-card">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wardrobes">
+            <div class="category-content">
+                <h3>Wardrobes</h3>
+                <p>Smart storage solutions with elegant designs</p>
+            </div>
+        </a>
+        <a href="#nightstands" class="category-card">
+            <img src="https://images.unsplash.com/photo-1616627455764-b9f14f8f8b1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nightstands">
+            <div class="category-content">
+                <h3>Nightstands</h3>
+                <p>Functional bedside companions with style</p>
+            </div>
+        </a>
+        <a href="#dressers" class="category-card">
+            <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dressers">
+            <div class="category-content">
+                <h3>Dressers</h3>
+                <p>Organization meets elegance in every drawer</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<div class="products-container" id="products">
+    <div class="products-header">
+        <h2>Featured Bedroom Furniture</h2>
+        <div class="filter-options">
+            <select class="filter-select" id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="beds">Beds</option>
+                <option value="wardrobes">Wardrobes</option>
+                <option value="nightstands">Nightstands</option>
+                <option value="dressers">Dressers</option>
+            </select>
+            <select class="filter-select" id="sortFilter">
+                <option value="default">Sort by: Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Customer Rating</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+        <!-- Products loaded by JavaScript -->
+    </div>
+</div>
+
+<!-- FEATURED SECTION -->
+<section class="featured-section">
+    <div class="featured-content">
+        <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Premium Bed Design">
+        </div>
+        <div class="featured-text">
+            <h2>Why Choose Our Bedroom Furniture?</h2>
+            <p>Our bedroom furniture is designed with both aesthetics and functionality in mind. We use only the finest materials and sustainable practices to create pieces that will stand the test of time.</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Premium quality materials</li>
+                <li><i class="fas fa-check-circle"></i> Eco-friendly manufacturing</li>
+                <li><i class="fas fa-check-circle"></i> 10-year warranty on all products</li>
+                <li><i class="fas fa-check-circle"></i> Free delivery & assembly</li>
+                <li><i class="fas fa-check-circle"></i> Customizable options available</li>
+            </ul>
+            <a href="#" class="hero-btn">
+                <i class="fas fa-couch"></i> Explore Custom Options
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- BENEFITS SECTION -->
+<section class="benefits">
+    <h2>Sleep Better, Live Better</h2>
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h3>Eco-Friendly Materials</h3>
+            <p>All our furniture is made from sustainably sourced materials with non-toxic finishes.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <h3>Free Delivery</h3>
+            <p>Enjoy free white-glove delivery and professional assembly with every purchase.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Extended Warranty</h3>
+            <p>Our furniture comes with a comprehensive 10-year warranty for peace of mind.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Ready to Transform Your Bedroom?</h2>
+        <p>Schedule a free design consultation with our experts and create the bedroom of your dreams.</p>
+        <a href="#" class="hero-btn">
+            <i class="fas fa-calendar-check"></i> Book Free Consultation
+        </a>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="productModalOverlay">
+    <div class="product-modal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-content">
+            <div class="modal-image-container">
+                <div class="main-image-container">
+                    <button class="image-nav prev" onclick="previousImage()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <img class="modal-image" id="modalMainImage" src="" alt="Product Image">
+                    <button class="image-nav next" onclick="nextImage()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="thumbnail-container" id="thumbnailContainer">
+                    <!-- Thumbnails loaded by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-details">
+                <div class="modal-category" id="modalCategory"></div>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-rating">
+                    <div class="modal-stars" id="modalStars"></div>
+                    <span class="rating-count" id="modalRatingCount"></span>
+                </div>
+                <div class="modal-price" id="modalPrice"></div>
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-features">
+                    <h4><i class="fas fa-star"></i> Features & Specifications</h4>
+                    <ul class="features-list" id="modalFeatures">
+                        <!-- Features loaded by JavaScript -->
+                    </ul>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn btn-primary" id="addToCartBtn">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="modal-btn btn-secondary" id="buyNowBtn">
+                        <i class="fas fa-bolt"></i> Buy Now
+                    </button>
+                    <button class="modal-btn btn-outline" id="addToWishlistBtn">
+                        <i class="far fa-heart"></i> Add to Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">Furni<span>Home</span></div>
+                <p class="footer-text">Creating beautiful spaces with handcrafted furniture since 2010. Quality, design, and sustainability at the heart of everything we do.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="Living Room.html">Living Room</a></li>
+                    <li><a href="Bedroom.html">Bedroom</a></li>
+                    <li><a href="Dining Room.html">Dining Room</a></li>
+                    <li><a href="Office.html">Office</a></li>
+                    <li><a href="Outdoor.html">Outdoor</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="Sustainability.html">Sustainability</a></li>
+                    <li><a href="career.html">Careers</a></li>
+                    <li><a href="Press.html">Press</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="Shipping.html">Shipping</a></li>
+                    <li><a href="Returns.html">Returns</a></li>
+                    <li><a href="Warranty.html">Warranty</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="newsletter-section">
+            <h3>Stay Updated</h3>
+            <p>Subscribe for exclusive offers, design tips, and new arrivals.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Your email address" class="newsletter-input" id="newsletterEmail">
+                <button class="newsletter-btn" onclick="subscribeNewsletter()">
+                    <i class="fas fa-paper-plane"></i> Subscribe
+                </button>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2023 FurniHome. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.8);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.8);">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Product Data
+    const products = [
+        {
+            id: 1,
+            name: "Aurora King Size Bed",
+            category: "beds",
+            price: 54999,
+            originalPrice: 64999,
+            images: [
+                "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            ],
+            rating: 5,
+            ratingCount: 234,
+            description: "Luxurious king size bed with upholstered headboard and solid wood frame. Designed for maximum comfort and elegant bedroom aesthetics.",
+            features: [
+                "Solid oak wood construction",
+                "Upholstered velvet headboard",
+                "Includes premium mattress slats",
+                "Easy assembly with included tools",
+                "Weight capacity: 500 kg",
+                "15-year warranty"
+            ],
+            dimensions: "198cm W x 213cm L x 120cm H",
+            material: "Solid Oak & Premium Velvet",
+            color: "Charcoal Gray",
+            stock: 8,
+            badge: "new"
+        },
+        {
+            id: 2,
+            name: "Modern 4-Door Wardrobe",
+            category: "wardrobes",
+            price: 62499,
+            originalPrice: 74999,
+            images: [
+                "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            ],
+            rating: 4,
+            ratingCount: 187,
+            description: "Spacious 4-door wardrobe with built-in mirror and intelligent storage solutions. Perfect for organized living.",
+            features: [
+                "4 sliding doors with mirror",
+                "Adjustable shelving system",
+                "LED lighting included",
+                "Soft-close mechanisms",
+                "Dust-proof compartments",
+                "10-year warranty"
+            ],
+            dimensions: "240cm W x 60cm D x 220cm H",
+            material: "Engineered Wood & Glass",
+            color: "White Gloss Finish",
+            stock: 12,
+            badge: "popular"
+        },
+        {
+            id: 3,
+            name: "Minimalist Nightstand",
+            category: "nightstands",
+            price: 12499,
+            originalPrice: 14999,
+            images: [
+                "https://images.unsplash.com/photo-1616627455764-b9f14f8f8b1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            ],
+            rating: 4,
+            ratingCount: 156,
+            description: "Sleek nightstand with built-in USB ports and wireless charging. Perfect for modern bedrooms.",
+            features: [
+                "Built-in USB charging ports",
+                "Wireless charging pad",
+                "Hidden cable management",
+                "Soft-close drawer",
+                "LED touch lighting",
+                "5-year warranty"
+            ],
+            dimensions: "45cm W x 40cm D x 55cm H",
+            material: "Walnut Wood & Metal",
+            color: "Natural Walnut",
+            stock: 25,
+            badge: null
+        },
+        {
+            id: 4,
+            name: "Elegant Dressing Table",
+            category: "dressers",
+            price: 28999,
+            originalPrice: 34999,
+            images: [
+                "https://images.unsplash.com/photo-1615874959474-d609969a20ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            ],
+            rating: 5,
+            ratingCount: 203,
+            description: "Complete dressing table set with LED mirror and ample storage. Create your perfect vanity space.",
+            features: [
+                "LED illuminated mirror",
+                "6 spacious drawers",
+                "Jewelry organizer included",
+                "Adjustable stool height",
+                "Anti-fog mirror technology",
+                "10-year warranty"
+            ],
+            dimensions: "120cm W x 45cm D x 75cm H",
+            material: "MDF with PU Finish",
+            color: "Ivory White",
+            stock: 6,
+            badge: "sale"
+        },
+        {
+            id: 5,
+            name: "Platform Storage Bed",
+            category: "beds",
+            price: 42999,
+            originalPrice: 49999,
+            images: [
+                "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            ],
+            rating: 4,
+            ratingCount: 178,
+            description: "Queen size platform bed with integrated storage drawers. Maximize space without compromising style.",
+            features: [
+                "4 large storage drawers",
+                "No box spring required",
+                "Solid wood slat system",
+                "Easy assembly design",
+                "Weight capacity: 400 kg",
+                "12-year warranty"
+            ],
+            dimensions: "160cm W x 210cm L x 45cm H",
+            material: "Solid Pine Wood",
+            color: "Natural Oak Finish",
+            stock: 15,
+            badge: "popular"
+        },
+        {
+            id: 6,
+            name: "Walk-in Wardrobe System",
+            category: "wardrobes",
+            price: 89999,
+            originalPrice: 109999,
+            images: [
+                "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            ],
+            rating: 5,
+            ratingCount: 94,
+            description: "Customizable walk-in wardrobe system with premium finishes. Transform your storage space.",
+            features: [
+                "Fully customizable layout",
+                "Premium Italian finishes",
+                "Motion sensor lighting",
+                "Pull-out accessories",
+                "Tie and belt racks",
+                "Lifetime warranty"
+            ],
+            dimensions: "Customizable",
+            material: "Lacquered MDF & Glass",
+            color: "Custom Finishes",
+            stock: 3,
+            badge: "new"
+        }
+    ];
+
+    // State Management
+    let likedProducts = new Set();
+    let cartCount = 0;
+    let currentModalProduct = null;
+    let currentImageIndex = 0;
+    let currentCategoryFilter = 'all';
+    let currentSortFilter = 'default';
+
+    // DOM Elements
+    const productsGrid = document.getElementById('productsGrid');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const sortFilter = document.getElementById('sortFilter');
+    const modalOverlay = document.getElementById('productModalOverlay');
+    const modalClose = document.getElementById('modalClose');
+
+    // Initialize
+    function init() {
+        renderProducts(products);
+        setupEventListeners();
+    }
+
+    // Render Products
+    function renderProducts(productsToRender) {
+        productsGrid.innerHTML = '';
+        
+        const filtered = filterProducts(productsToRender);
+        const sorted = sortProducts(filtered);
+        
+        sorted.forEach(product => {
+            const productCard = createProductCard(product);
+            productsGrid.appendChild(productCard);
+        });
+    }
+
+    // Create Product Card
+    function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        
+        const badge = product.badge ? `<div class="product-badge badge-${product.badge}">${product.badge.toUpperCase()}</div>` : '';
+        
+        card.innerHTML = `
+            ${badge}
+            <div class="product-image" data-product-id="${product.id}">
+                <img src="${product.images[0]}" alt="${product.name}">
+                <div class="product-overlay">
+                    <button class="quick-view-btn" data-product-id="${product.id}">
+                        <i class="fas fa-eye"></i> Quick View
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <div class="product-category">${product.category.toUpperCase()}</div>
+                <h3 class="product-name" data-product-id="${product.id}">${product.name}</h3>
+                <p class="product-description">${product.description.substring(0, 80)}...</p>
+                <div class="product-rating">
+                    <div class="product-stars">${getStarRating(product.rating)}</div>
+                    <span class="rating-count">(${product.ratingCount})</span>
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">₹${product.price.toLocaleString()}</div>
+                    <div class="product-actions">
+                        <button class="action-btn ${likedProducts.has(product.id) ? 'active' : ''}" 
+                                onclick="toggleLike(${product.id}, this)">
+                            <i class="${likedProducts.has(product.id) ? 'fas' : 'far'} fa-heart"></i>
+                        </button>
+                        <button class="action-btn" onclick="addToCart(${product.id})">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        return card;
+    }
+
+    // Filter Products
+    function filterProducts(productsList) {
+        if (currentCategoryFilter === 'all') return productsList;
+        return productsList.filter(product => product.category === currentCategoryFilter);
+    }
+
+    // Sort Products
+    function sortProducts(productsList) {
+        switch (currentSortFilter) {
+            case 'price-low':
+                return [...productsList].sort((a, b) => a.price - b.price);
+            case 'price-high':
+                return [...productsList].sort((a, b) => b.price - a.price);
+            case 'rating':
+                return [...productsList].sort((a, b) => b.rating - a.rating);
+            default:
+                return productsList;
+        }
+    }
+
+    // Get Star Rating
+    function getStarRating(rating) {
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            stars += i <= rating ? '★' : '☆';
+        }
+        return stars;
+    }
+
+    // Setup Event Listeners
+    function setupEventListeners() {
+        // Filter listeners
+        categoryFilter.addEventListener('change', function() {
+            currentCategoryFilter = this.value;
+            renderProducts(products);
+        });
+        
+        sortFilter.addEventListener('change', function() {
+            currentSortFilter = this.value;
+            renderProducts(products);
+        });
+        
+        // Quick view
+        productsGrid.addEventListener('click', function(e) {
+            const quickViewBtn = e.target.closest('.quick-view-btn');
+            const productName = e.target.closest('.product-name');
+            
+            if (quickViewBtn || productName) {
+                const productId = parseInt((quickViewBtn || productName).dataset.productId);
+                const product = products.find(p => p.id === productId);
+                if (product) openProductModal(product);
+            }
+        });
+        
+        // Modal close
+        modalClose.addEventListener('click', closeProductModal);
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) closeProductModal();
+        });
+        
+        // Modal button actions
+        document.getElementById('addToCartBtn').addEventListener('click', function() {
+            if (currentModalProduct) {
+                addToCart(currentModalProduct.id);
+                closeProductModal();
+            }
+        });
+        
+        document.getElementById('buyNowBtn').addEventListener('click', function() {
+            if (currentModalProduct) {
+                alert(`Proceeding to checkout for "${currentModalProduct.name}"`);
+                closeProductModal();
+            }
+        });
+        
+        document.getElementById('addToWishlistBtn').addEventListener('click', function() {
+            if (currentModalProduct) {
+                toggleLike(currentModalProduct.id, this);
+            }
+        });
+    }
+
+    // Product Modal Functions
+    function openProductModal(product) {
+        currentModalProduct = product;
+        currentImageIndex = 0;
+        
+        // Update modal content
+        document.getElementById('modalMainImage').src = product.images[0];
+        document.getElementById('modalCategory').textContent = product.category.toUpperCase();
+        document.getElementById('modalTitle').textContent = product.name;
+        document.getElementById('modalStars').textContent = getStarRating(product.rating);
+        document.getElementById('modalRatingCount').textContent = `(${product.ratingCount} reviews)`;
+        document.getElementById('modalPrice').textContent = `₹${product.price.toLocaleString()}`;
+        document.getElementById('modalDescription').textContent = product.description;
+        
+        // Update thumbnails
+        const thumbnailContainer = document.getElementById('thumbnailContainer');
+        thumbnailContainer.innerHTML = '';
+        
+        product.images.forEach((image, index) => {
+            const thumbnail = document.createElement('img');
+            thumbnail.src = image;
+            thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+            thumbnail.addEventListener('click', () => {
+                currentImageIndex = index;
+                updateModalImage();
+            });
+            thumbnailContainer.appendChild(thumbnail);
+        });
+        
+        // Update features
+        const featuresList = document.getElementById('modalFeatures');
+        featuresList.innerHTML = '';
+        
+        product.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
+            featuresList.appendChild(li);
+        });
+        
+        // Add additional info
+        if (product.dimensions) {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fas fa-ruler-combined"></i> Dimensions: ${product.dimensions}`;
+            featuresList.appendChild(li);
+        }
+        
+        if (product.material) {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fas fa-cube"></i> Material: ${product.material}`;
+            featuresList.appendChild(li);
+        }
+        
+        if (product.color) {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fas fa-palette"></i> Color: ${product.color}`;
+            featuresList.appendChild(li);
+        }
+        
+        // Show modal
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function updateModalImage() {
+        if (!currentModalProduct) return;
+        
+        document.getElementById('modalMainImage').src = currentModalProduct.images[currentImageIndex];
+        
+        // Update active thumbnail
+        document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+            thumb.classList.toggle('active', index === currentImageIndex);
+        });
+    }
+    
+    function previousImage() {
+        if (!currentModalProduct) return;
+        
+        currentImageIndex = (currentImageIndex - 1 + currentModalProduct.images.length) % currentModalProduct.images.length;
+        updateModalImage();
+    }
+    
+    function nextImage() {
+        if (!currentModalProduct) return;
+        
+        currentImageIndex = (currentImageIndex + 1) % currentModalProduct.images.length;
+        updateModalImage();
+    }
+    
+    function closeProductModal() {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        currentModalProduct = null;
+    }
+
+    // Interactive Functions
+    function toggleLike(productId, element) {
+        if (likedProducts.has(productId)) {
+            likedProducts.delete(productId);
+            showNotification('Removed from favorites');
+        } else {
+            likedProducts.add(productId);
+            showNotification('Added to favorites');
+        }
+        
+        // Update UI
+        if (element.classList) {
+            element.classList.toggle('active');
+            const icon = element.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('far');
+                icon.classList.toggle('fas');
+            }
+        }
+    }
+    
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        cartCount++;
+        updateCartCount();
+        showNotification(`"${product.name}" added to cart!`);
+    }
+    
+    function updateCartCount() {
+        // Update cart count in UI if cart element exists
+        const cartCountEl = document.querySelector('.cart-count');
+        if (cartCountEl) {
+            cartCountEl.textContent = cartCount;
+        }
+    }
+    
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.innerHTML = `<i class="fas fa-check-circle"></i> <span>${message}</span>`;
+        
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-color);
+            color: white;
+            padding: 20px 25px;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--box-shadow-lg);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateY(0)';
+            notification.style.opacity = '1';
+        }, 10);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateY(100px)';
+            notification.style.opacity = '0';
+            setTimeout(() => notification.remove(), 400);
+        }, 3000);
+    }
+    
+    function subscribeNewsletter() {
+        const email = document.getElementById('newsletterEmail').value.trim();
+        if (email && validateEmail(email)) {
+            showNotification(`Thank you for subscribing with ${email}!`);
+            document.getElementById('newsletterEmail').value = '';
+        } else {
+            showNotification('Please enter a valid email address');
+        }
+    }
+    
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    // Scroll functions
+    function scrollToProducts() {
+        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function scrollToCategories() {
+        document.getElementById('categories').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Initialize
+    init();
+});
+
+// Global functions for onclick handlers
+function previousImage() {
+    // Implementation in the main script
+}
+
+function nextImage() {
+    // Implementation in the main script
+}
+
+function toggleLike(productId, element) {
+    // Implementation in the main script
+}
+
+function addToCart(productId) {
+    // Implementation in the main script
+}
+
+function subscribeNewsletter() {
+    // Implementation in the main script
+}
+</script>
+
+</body>
+</html>

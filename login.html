@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Card */
+.login-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 30px 25px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.logo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 10px;
+    background-image: url("/zomoto/img/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Title */
+h1 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+/* Inputs */
+.input-box {
+    margin-top: 15px;
+    text-align: left;
+}
+.input-box label {
+    font-size: 14px;
+    color: #555;
+}
+.input-box input {
+    width: 90%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 16px;
+    background: #3D5A5E;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #0B1415;
+}
+
+/* Extra */
+.extra {
+    margin-top: 15px;
+    font-size: 14px;
+}
+.extra a {
+    color: #3D5A5E;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+    <div class="logo"></div>
+    <h1>Login</h1>
+
+    <div class="input-box">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+    </div>
+
+    <div class="input-box">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password">
+    </div>
+
+    <button class="btn" onclick="login()">Login</button>
+
+    <div class="extra">
+        Don’t have an account?
+        <a href="register.html">Sign up</a>
+    </div>
+</div>
+
+<script>
+function login() {
+    alert("Login clicked (connect backend later)");
+}
+</script>
+
+</body>
+</html>
